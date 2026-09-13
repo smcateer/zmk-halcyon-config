@@ -33,4 +33,3 @@ include:
   - board: halcyon_wireless//zmk
     shield: halcyon_kyria_right mod_battery_coincell mod_encoder_right
     artifact-name: kyria-right
----
