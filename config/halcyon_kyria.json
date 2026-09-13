@@ -58,7 +58,7 @@
         { "row": 3, "col":  10, "x":  10, "y": 3 },
         { "row": 3, "col":  11, "x":  11, "y": 3 },
         { "row": 3, "col":  12, "x":  12, "y": 3 },
-        
+
         { "row": 4, "col":   0, "x": 0, "y": 5},
         { "row": 4, "col":   1, "x": 1, "y": 5},
         { "row": 4, "col":   2, "x": 2, "y": 5},
@@ -74,22 +74,6 @@
   },
   "sensors": [
     {
-      "ref": "left_soldered_encoder",
-      "name": "soldered_encoder_left",
-      "identifier": "soldered_encoder_left",
-      "compatible": "alps,ec11",
-      "label": "LEFT_ENCODER",
-      "enabled": false
-    },
-    {
-      "ref": "right_soldered_encoder",
-      "name": "soldered_encoder_right",
-      "identifier": "soldered_encoder_right",
-      "compatible": "alps,ec11",
-      "label": "RIGHT_ENCODER",
-      "enabled": false
-    },
-    {
       "ref": "left_halcyon_encoder",
       "name": "halcyon_encoder_left",
       "identifier": "halcyon_encoder_left",
@@ -103,6 +87,22 @@
       "identifier": "halcyon_encoder_right",
       "compatible": "alps,ec11",
       "label": "RIGHT_HALCYON_ENCODER",
+      "enabled": false
+    },
+    {
+      "ref": "left_soldered_encoder",
+      "name": "soldered_encoder_left",
+      "identifier": "soldered_encoder_left",
+      "compatible": "alps,ec11",
+      "label": "LEFT_SOLDERED_ENCODER",
+      "enabled": false
+    },
+    {
+      "ref": "right_soldered_encoder",
+      "name": "soldered_encoder_right",
+      "identifier": "soldered_encoder_right",
+      "compatible": "alps,ec11",
+      "label": "RIGHT_SOLDERED_ENCODER",
       "enabled": false
     }
   ]
