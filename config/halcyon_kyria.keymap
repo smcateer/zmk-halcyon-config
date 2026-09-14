@@ -68,11 +68,11 @@
         base_layer {
             display-name = "Base";
             bindings = <
-&kp ESC    &kp V            &kp W            &kp F                &kp R              &kp B                                  &kp J  &kp L              &kp U                &kp Y            &kp SQT          &caps_word
-&kp TAB    &hml LEFT_GUI R  &hml LEFT_ALT S  &hml LEFT_CONTROL T  &hml LEFT_SHIFT H  &kp G                                  &kp X  &hmr LEFT_SHIFT N  &hmr LEFT_CONTROL A  &hmr LEFT_ALT I  &hmr LEFT_GUI O  &kp MINUS
-&kp ENTER  &sk LEFT_SHIFT   &kp X            &kp G                &kp V              &kp Q  &none  &none  &none  &none      &kp Z  &kp M              &kp COMMA            &kp DOT          &sk LEFT_SHIFT   &kp AT
-                                             &none                &sl 4              &sl 2  &kp E  &sl 1  &sl 3  &kp SPACE  &none  &kp BACKSPACE      &none
-&kp N1     &kp N2           &kp N3           &kp N4               &kp N5                                                           &kp N6             &kp N7               &kp N8           &kp N9           &kp N0
+&kp ESC    &kp V            &kp W            &kp F                &kp R              &kp B                                                            &kp J                            &kp L              &kp U                &kp Y            &kp SQT          &caps_word
+&kp TAB    &hml LEFT_GUI R  &hml LEFT_ALT S  &hml LEFT_CONTROL T  &hml LEFT_SHIFT H  &hml LG(LA(LS(LEFT_CONTROL))) K                                  &hmr LG(LA(LS(LEFT_CONTROL))) X  &hmr LEFT_SHIFT N  &hmr LEFT_CONTROL A  &hmr LEFT_ALT I  &hmr LEFT_GUI O  &kp MINUS
+&kp ENTER  &sk LEFT_SHIFT   &kp X            &kp G                &kp V              &hml LS(LA(LEFT_CONTROL)) Q      &none  &none  &none  &none      &hmr LS(LA(LEFT_CONTROL)) Z      &kp M              &kp COMMA            &kp DOT          &sk LEFT_SHIFT   &kp AT
+                                             &none                &sl 4              &sl 2                            &kp E  &sl 1  &sl 3  &kp SPACE  &none                            &kp BACKSPACE      &none
+&kp N1     &kp N2           &kp N3           &kp N4               &kp N5                                                                                                               &kp N6             &kp N7               &kp N8           &kp N9           &kp N0
             >;
 
             sensor-bindings =
@@ -85,11 +85,11 @@
         nav_layer {
             display-name = "Navigation";
             bindings = <
-&trans  &kp PRINTSCREEN  &kp LC(A)            &kp K_UNDO           &kp LC(K_REDO)  &kp LC(R)                                  &kp LC(B)  &kp HOME  &kp PAGE_DOWN  &kp PAGE_UP     &kp END    &kp CAPSLOCK
-&trans  &kp LGUI         &kp LALT             &kp LCTRL            &kp LSHFT       &trans                                     &kp LC(I)  &kp LEFT  &kp DOWN       &kp DOWN_ARROW  &kp RIGHT  &kp K_APPLICATION
-&trans  &kp LC(X)        &th LC(LS(C)) LC(C)  &th LC(LS(V)) LC(V)  &kp LG(V)       &trans     &trans  &trans  &trans  &trans  &kp LC(U)  &trans    &trans         &trans          &trans     &trans
-                                              &trans               &trans          &trans     &trans  &trans  &trans  &trans  &trans     &trans    &trans
-&trans  &trans           &trans               &trans               &trans                                                                &trans    &trans         &trans          &trans     &trans
+&trans  &kp PRINTSCREEN  &kp LC(A)            &kp K_UNDO           &kp LC(K_REDO)  &kp LC(R)                                                     &kp LC(B)  &kp HOME  &kp PAGE_DOWN  &kp PAGE_UP     &kp END    &kp CAPSLOCK
+&trans  &kp LGUI         &kp LALT             &kp LCTRL            &kp LSHFT       &kp LG(LA(LS(LEFT_CONTROL)))                                  &kp LC(I)  &kp LEFT  &kp DOWN       &kp DOWN_ARROW  &kp RIGHT  &kp K_APPLICATION
+&trans  &kp LC(X)        &th LC(LS(C)) LC(C)  &th LC(LS(V)) LC(V)  &kp LG(V)       &kp LA(LS(LEFT_CONTROL))      &trans  &trans  &trans  &trans  &kp LC(U)  &trans    &trans         &trans          &trans     &trans
+                                              &trans               &trans          &trans                        &trans  &trans  &trans  &trans  &trans     &trans    &trans
+&trans  &trans           &trans               &trans               &trans                                                                                   &trans    &trans         &trans          &trans     &trans
             >;
 
             sensor-bindings = <
