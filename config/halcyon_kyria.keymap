@@ -16,29 +16,28 @@
         base_layer {
             display-name = "Base";
             bindings = <
-&kp ESC    &kp V           &kp W           &kp F               &kp R             &kp B                                        &kp J  &kp L             &kp U               &kp Y           &kp SQT         &caps_word
-&kp TAB    &mt LEFT_GUI R  &mt LEFT_ALT S  &mt LEFT_CONTROL T  &mt LEFT_SHIFT H  &kp G                                        &kp X  &mt LEFT_SHIFT N  &mt LEFT_CONTROL A  &mt LEFT_ALT I  &mt LEFT_GUI O  &kp MINUS
-&kp ENTER  &sk LEFT_SHIFT  &kp X           &kp G               &kp V             &kp Q  &kp LBKT  &kp CAPS  &mo 4  &kp RBKT   &kp Z  &kp M             &kp COMMA           &kp DOT         &sk LEFT_SHIFT  &kp AT
-                                           &mo 5               &sl 4             &sl 2  &kp E     &sl 1     &sl 3  &kp SPACE  &none  &kp BACKSPACE     &none
-&kp N1     &kp N2          &kp N3          &kp N4              &kp N5                                                                &kp N6            &kp N7              &kp N8          &kp N9          &kp N0
+&kp ESC    &kp V           &kp W           &kp F               &kp R             &kp B                                  &kp J  &kp L             &kp U               &kp Y           &kp SQT         &caps_word
+&kp TAB    &mt LEFT_GUI R  &mt LEFT_ALT S  &mt LEFT_CONTROL T  &mt LEFT_SHIFT H  &kp G                                  &kp X  &mt LEFT_SHIFT N  &mt LEFT_CONTROL A  &mt LEFT_ALT I  &mt LEFT_GUI O  &kp MINUS
+&kp ENTER  &sk LEFT_SHIFT  &kp X           &kp G               &kp V             &kp Q  &none  &none  &none  &none      &kp Z  &kp M             &kp COMMA           &kp DOT         &sk LEFT_SHIFT  &kp AT
+                                           &none               &sl 4             &sl 2  &kp E  &sl 1  &sl 3  &kp SPACE  &none  &kp BACKSPACE     &none
+&kp N1     &kp N2          &kp N3          &kp N4              &kp N5                                                          &kp N6            &kp N7              &kp N8          &kp N9          &kp N0
             >;
 
-            sensor-bindings = <
-                &inc_dec_kp C_VOL_UP C_VOL_DN
-                &inc_dec_kp PG_UP PG_DN
-                &inc_dec_kp X X
-                &inc_dec_kp X X
-            >;
+            sensor-bindings =
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+                <&inc_dec_kp LG(LC(RIGHT)) LC(LG(LEFT_ARROW))>,
+                <&inc_dec_kp X X>,
+                <&inc_dec_kp X X>;
         };
 
         nav_layer {
             display-name = "Navigation";
             bindings = <
-&trans  &trans    &trans    &trans     &trans     &studio_unlock                                  &kp PG_UP  &kp HOME  &kp UP    &kp END    &kp K_VOL_UP  &kp DEL
-&trans  &kp LGUI  &kp LALT  &kp LCTRL  &kp LSHFT  &trans                                          &kp PG_DN  &kp LEFT  &kp DOWN  &kp RIGHT  &kp K_VOL_DN  &kp INS
-&trans  &trans    &trans    &trans     &trans     &trans          &trans  &trans  &trans  &trans  &trans     &trans    &trans    &trans     &trans        &trans
-                            &trans     &trans     &trans          &trans  &trans  &trans  &trans  &trans     &trans    &trans
-&trans  &trans    &trans    &trans     &trans                                                                &trans    &trans    &trans     &trans        &trans
+&trans  &kp PRINTSCREEN      &kp LC(A)  &kp K_UNDO  &kp LC(K_REDO)  &studio_unlock                                  &kp LC(B)  &kp HOME  &kp PAGE_DOWN  &kp PAGE_UP     &kp END    &kp CAPSLOCK
+&trans  &kp LGUI             &kp LALT   &kp LCTRL   &kp LSHFT       &trans                                          &kp LC(I)  &kp LEFT  &kp DOWN       &kp DOWN_ARROW  &kp RIGHT  &kp K_APPLICATION
+&trans  &mt LC(LS(C)) LC(C)  &trans     &trans      &trans          &trans          &trans  &trans  &trans  &trans  &kp LC(U)  &trans    &trans         &trans          &trans     &trans
+                                        &trans      &trans          &trans          &trans  &trans  &trans  &trans  &trans     &trans    &trans
+&trans  &trans               &trans     &trans      &trans                                                                     &trans    &trans         &trans          &trans     &trans
             >;
 
             sensor-bindings = <
