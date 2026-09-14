@@ -9,6 +9,12 @@
 #define FUNCTION 3
 #define ADJUST   4
 
+#define HYPER      LG(LS(LA(LCTRL)))
+#define MEH        LS(LA(LCTRL))
+
+#define HYPER_K(k) LG(LS(LA(LC(k))))
+#define MEH_K(k)   LS(LA(LC(k)))
+
 / {
     behaviors {
         hml: home_row_mod_left {
