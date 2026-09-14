@@ -54,6 +54,16 @@
 
             hold-trigger-on-release;
         };
+
+        th: tap_hold {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+
+            flavor = "hold-preferred";
+            tapping-term-ms = <200>;
+
+            bindings = <&kp>, <&kp>;
+        };
     };
 
     keymap {
@@ -80,7 +90,7 @@
             bindings = <
 &trans  &kp PRINTSCREEN      &kp LC(A)  &kp K_UNDO  &kp LC(K_REDO)  &studio_unlock                                  &kp LC(B)  &kp HOME  &kp PAGE_DOWN  &kp PAGE_UP     &kp END    &kp CAPSLOCK
 &trans  &kp LGUI             &kp LALT   &kp LCTRL   &kp LSHFT       &trans                                          &kp LC(I)  &kp LEFT  &kp DOWN       &kp DOWN_ARROW  &kp RIGHT  &kp K_APPLICATION
-&trans  &mt LC(LS(C)) LC(C)  &trans     &trans      &trans          &trans          &trans  &trans  &trans  &trans  &kp LC(U)  &trans    &trans         &trans          &trans     &trans
+&trans  &th LC(LS(C)) LC(C)  &trans     &trans      &trans          &trans          &trans  &trans  &trans  &trans  &kp LC(U)  &trans    &trans         &trans          &trans     &trans
                                         &trans      &trans          &trans          &trans  &trans  &trans  &trans  &trans     &trans    &trans
 &trans  &trans               &trans     &trans      &trans                                                                     &trans    &trans         &trans          &trans     &trans
             >;
