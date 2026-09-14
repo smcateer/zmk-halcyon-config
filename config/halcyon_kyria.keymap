@@ -16,11 +16,11 @@
         base_layer {
             display-name = "Base";
             bindings = <
-&kp ESC    &kp V           &kp W           &kp F               &kp R             &kp B                                                  &kp J  &kp L             &kp U               &kp Y           &kp SQT         &caps_word
-&kp TAB    &mt LEFT_GUI R  &mt LEFT_ALT S  &mt LEFT_CONTROL T  &mt LEFT_SHIFT H  &kp G                                                  &kp X  &mt LEFT_SHIFT N  &mt LEFT_CONTROL A  &mt LEFT_ALT I  &mt LEFT_GUI O  &kp MINUS
-&kp ENTER  &sk LEFT_SHIFT  &kp X           &kp G               &kp V             &kp Q     &kp LBKT  &kp CAPS  &mo FUNCTION  &kp RBKT   &kp Z  &kp M             &kp COMMA           &kp DOT         &sk LEFT_SHIFT  &kp AT
-                                           &mo ADJUST          &kp LGUI          &kp LALT  &kp E     &mo NAV   &sl SYM       &kp SPACE  &none  &kp BACKSPACE     &none
-&kp N1     &kp N2          &kp N3          &kp N4              &kp N5                                                                          &kp N6            &kp N7              &kp N8          &kp N9          &kp N0
+&kp ESC    &kp V           &kp W           &kp F               &kp R             &kp B                                        &kp J  &kp L             &kp U               &kp Y           &kp SQT         &caps_word
+&kp TAB    &mt LEFT_GUI R  &mt LEFT_ALT S  &mt LEFT_CONTROL T  &mt LEFT_SHIFT H  &kp G                                        &kp X  &mt LEFT_SHIFT N  &mt LEFT_CONTROL A  &mt LEFT_ALT I  &mt LEFT_GUI O  &kp MINUS
+&kp ENTER  &sk LEFT_SHIFT  &kp X           &kp G               &kp V             &kp Q  &kp LBKT  &kp CAPS  &mo 4  &kp RBKT   &kp Z  &kp M             &kp COMMA           &kp DOT         &sk LEFT_SHIFT  &kp AT
+                                           &mo 5               &sl 4             &sl 2  &kp E     &sl 1     &sl 3  &kp SPACE  &none  &kp BACKSPACE     &none
+&kp N1     &kp N2          &kp N3          &kp N4              &kp N5                                                                &kp N6            &kp N7              &kp N8          &kp N9          &kp N0
             >;
 
             sensor-bindings = <
@@ -46,6 +46,16 @@
                 &inc_dec_kp PG_UP PG_DN
                 &inc_dec_kp X X
                 &inc_dec_kp X X
+            >;
+        };
+
+        num_layer {
+            bindings = <
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans                                  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+                        &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans  &trans
+&trans  &trans  &trans  &trans  &trans                                                  &trans  &trans  &trans  &trans  &trans
             >;
         };
 
