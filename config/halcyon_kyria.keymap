@@ -8,37 +8,6 @@
 #define NAV  3
 #define SYM  4
 
-/* Shared hold-tap tuning. */
-#define HOLD_TAP_FLAVOR       "balanced"
-#define HOLD_TAP_TERM_MS      200
-#define HRM_PRIOR_IDLE_MS     100
-
-/* Common modifier chords. */
-#define MEH                   LS(LA(LCTRL))
-#define HYPER                 LG(MEH)
-
-/* Physical positions used by positional/chordal hold-taps. */
-#define LEFT_HAND_POSITIONS \
-     0  1  2  3  4  5 \
-    12 13 14 15 16 17 \
-    24 25 26 27 28 29 \
-    41 42 43 44
-
-#define RIGHT_HAND_POSITIONS \
-     6  7  8  9 10 11 \
-    18 19 20 21 22 23 \
-    34 35 36 37 38 39 \
-    45 46 48
-
-/* Repeated behavior/sensor wiring. */
-#define KP_KP_BINDINGS        <&kp>, <&kp>
-#define TAB_HOLD_BASE         &phtl_to BASE TAB
-#define NOOP_SENSOR_BINDINGS  \
-    <&noop_sensor>, \
-    <&noop_sensor>, \
-    <&noop_sensor>, \
-    <&noop_sensor>
-
 / {
     behaviors {
         /*
@@ -54,13 +23,18 @@
             #binding-cells = <2>;
             display-name = "Home Row Mod Left";
 
-            flavor = HOLD_TAP_FLAVOR;
-            tapping-term-ms = <HOLD_TAP_TERM_MS>;
-            require-prior-idle-ms = <HRM_PRIOR_IDLE_MS>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            require-prior-idle-ms = <100>;
 
-            bindings = KP_KP_BINDINGS;
+            bindings = <&kp>, <&kp>;
 
-            hold-trigger-key-positions = <RIGHT_HAND_POSITIONS>;
+            hold-trigger-key-positions = <
+                 6  7  8  9 10 11
+                18 19 20 21 22 23
+                34 35 36 37 38 39
+                45 46 48
+            >;
 
             hold-trigger-on-release;
         };
@@ -70,13 +44,18 @@
             #binding-cells = <2>;
             display-name = "Home Row Mod Right";
 
-            flavor = HOLD_TAP_FLAVOR;
-            tapping-term-ms = <HOLD_TAP_TERM_MS>;
-            require-prior-idle-ms = <HRM_PRIOR_IDLE_MS>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
+            require-prior-idle-ms = <100>;
 
-            bindings = KP_KP_BINDINGS;
+            bindings = <&kp>, <&kp>;
 
-            hold-trigger-key-positions = <LEFT_HAND_POSITIONS>;
+            hold-trigger-key-positions = <
+                 0  1  2  3  4  5
+                12 13 14 15 16 17
+                24 25 26 27 28 29
+                41 42 43 44
+            >;
 
             hold-trigger-on-release;
         };
@@ -90,12 +69,17 @@
             #binding-cells = <2>;
             display-name = "Positional Hold Tap Left";
 
-            flavor = HOLD_TAP_FLAVOR;
-            tapping-term-ms = <HOLD_TAP_TERM_MS>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
 
-            bindings = KP_KP_BINDINGS;
+            bindings = <&kp>, <&kp>;
 
-            hold-trigger-key-positions = <RIGHT_HAND_POSITIONS>;
+            hold-trigger-key-positions = <
+                 6  7  8  9 10 11
+                18 19 20 21 22 23
+                34 35 36 37 38 39
+                45 46 48
+            >;
 
             hold-trigger-on-release;
         };
@@ -105,12 +89,17 @@
             #binding-cells = <2>;
             display-name = "Positional Hold Tap Right";
 
-            flavor = HOLD_TAP_FLAVOR;
-            tapping-term-ms = <HOLD_TAP_TERM_MS>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
 
-            bindings = KP_KP_BINDINGS;
+            bindings = <&kp>, <&kp>;
 
-            hold-trigger-key-positions = <LEFT_HAND_POSITIONS>;
+            hold-trigger-key-positions = <
+                 0  1  2  3  4  5
+                12 13 14 15 16 17
+                24 25 26 27 28 29
+                41 42 43 44
+            >;
 
             hold-trigger-on-release;
         };
@@ -125,30 +114,40 @@
             #binding-cells = <2>;
             display-name = "Layer Return Tap Left";
 
-            flavor = HOLD_TAP_FLAVOR;
-            tapping-term-ms = <HOLD_TAP_TERM_MS>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
 
             bindings = <&to>, <&kp>;
 
-            hold-trigger-key-positions = <RIGHT_HAND_POSITIONS>;
+            hold-trigger-key-positions = <
+                 6  7  8  9 10 11
+                18 19 20 21 22 23
+                34 35 36 37 38 39
+                45 46 48
+            >;
 
             hold-trigger-on-release;
         };
 
         /*
-         * MEH on hold / horizontal-wheel-left on tap.
+         * Meh on hold / horizontal-wheel-left on tap.
          */
         phtl_scroll: positional_hold_tap_scroll_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
             display-name = "Scroll Hold Tap Left";
 
-            flavor = HOLD_TAP_FLAVOR;
-            tapping-term-ms = <HOLD_TAP_TERM_MS>;
+            flavor = "balanced";
+            tapping-term-ms = <200>;
 
             bindings = <&kp>, <&msc>;
 
-            hold-trigger-key-positions = <RIGHT_HAND_POSITIONS>;
+            hold-trigger-key-positions = <
+                 6  7  8  9 10 11
+                18 19 20 21 22 23
+                34 35 36 37 38 39
+                45 46 48
+            >;
 
             hold-trigger-on-release;
         };
@@ -222,10 +221,10 @@
                 &hml LALT S       // 14
                 &hml LCTRL T      // 15
                 &hml LSHIFT H     // 16
-                &hml HYPER K      // 17
+                &hml LG(LS(LA(LCTRL))) K      // 17
 
                 // Row 1, right - positions 18-23
-                &hmr HYPER X      // 18
+                &hmr LG(LS(LA(LCTRL))) X      // 18
                 &hmr LSHIFT N     // 19
                 &hmr LCTRL A      // 20
                 &hmr LALT I       // 21
@@ -238,7 +237,7 @@
                 &kp C             // 26
                 &kp G             // 27
                 &kp D             // 28
-                &hml MEH Q        // 29
+                &hml LS(LA(LCTRL)) Q        // 29
 
                 // Upper thumbs, left - positions 30-31
                 &none             // 30
@@ -249,7 +248,7 @@
                 &none             // 33
 
                 // Row 2, right - positions 34-39
-                &hmr MEH Z        // 34
+                &hmr LS(LA(LCTRL)) Z        // 34
                 &kp M             // 35
                 &kp COMMA         // 36
                 &kp DOT           // 37
@@ -285,7 +284,11 @@
                 &none             // 59
             >;
 
-            sensor-bindings = NOOP_SENSOR_BINDINGS;
+            sensor-bindings =
+                <&noop_sensor>,
+                <&noop_sensor>,
+                <&noop_sensor>,
+                <&noop_sensor>;
         };
 
         /*
@@ -313,15 +316,15 @@
                 &none                       // 11
 
                 // Row 1, left - positions 12-17
-                TAB_HOLD_BASE               // 12
+                &phtl_to BASE TAB               // 12
                 &phtl LGUI FSLH             // 13
                 &phtl LALT STAR             // 14
                 &phtl LCTRL MINUS           // 15
                 &phtl LSHIFT PLUS           // 16
-                &phtl HYPER EQUAL           // 17
+                &phtl LG(LS(LA(LCTRL))) EQUAL           // 17
 
                 // Row 1, right - positions 18-23
-                &kp HYPER                   // 18
+                &kp LG(LS(LA(LCTRL)))                   // 18
                 &phtr LSHIFT N4             // 19
                 &phtr LCTRL N5              // 20
                 &phtr LALT N6               // 21
@@ -334,7 +337,7 @@
                 &mkp MB2                    // 26
                 &mkp MB3                    // 27
                 &mkp MB1                    // 28
-                &phtl_scroll MEH SCRL_LEFT  // 29
+                &phtl_scroll LS(LA(LCTRL)) SCRL_LEFT  // 29
 
                 // Upper thumbs, left - positions 30-31
                 &none                       // 30
@@ -345,7 +348,7 @@
                 &none                       // 33
 
                 // Row 2, right - positions 34-39
-                &kp MEH                     // 34
+                &kp LS(LA(LCTRL))                     // 34
                 &kp N1                      // 35
                 &kp N2                      // 36
                 &kp N3                      // 37
@@ -381,7 +384,11 @@
                 &none                       // 59
             >;
 
-            sensor-bindings = NOOP_SENSOR_BINDINGS;
+            sensor-bindings =
+                <&noop_sensor>,
+                <&noop_sensor>,
+                <&noop_sensor>,
+                <&noop_sensor>;
         };
 
         /*
@@ -411,12 +418,12 @@
                 &trans                      // 11
 
                 // Row 1, left - positions 12-17
-                TAB_HOLD_BASE               // 12
+                &phtl_to BASE TAB               // 12
                 &kp LGUI                    // 13
                 &kp LALT                    // 14
                 &phtl LCTRL LG(LC(LEFT))    // 15
                 &phtl LSHIFT LG(LC(RIGHT))  // 16
-                &kp HYPER                   // 17
+                &kp LG(LS(LA(LCTRL)))                   // 17
 
                 // Row 1, right - positions 18-23
                 &kp SCROLLLOCK              // 18
@@ -432,7 +439,7 @@
                 &none                       // 26
                 &kp LA(LC(LS(TAB)))         // 27
                 &kp LA(LC(TAB))             // 28
-                &kp MEH                     // 29
+                &kp LS(LA(LCTRL))                     // 29
 
                 // Upper thumbs, left - positions 30-31
                 &none                       // 30
@@ -479,7 +486,11 @@
                 &none                       // 59
             >;
 
-            sensor-bindings = NOOP_SENSOR_BINDINGS;
+            sensor-bindings =
+                <&noop_sensor>,
+                <&noop_sensor>,
+                <&noop_sensor>,
+                <&noop_sensor>;
         };
 
         /*
@@ -507,12 +518,12 @@
                 &kp CAPSLOCK           // 11
 
                 // Row 1, left - positions 12-17
-                TAB_HOLD_BASE          // 12
+                &phtl_to BASE TAB          // 12
                 &kp LGUI               // 13
                 &kp LALT               // 14
                 &kp LCTRL              // 15
                 &kp LSHIFT             // 16
-                &kp HYPER              // 17
+                &kp LG(LS(LA(LCTRL)))              // 17
 
                 // Row 1, right - positions 18-23
                 &kp LC(I)              // 18
@@ -528,7 +539,7 @@
                 &phtl LC(LS(C)) LC(C)  // 26
                 &phtl LC(LS(V)) LC(V)  // 27
                 &kp LG(V)              // 28
-                &phtl MEH C_AC_BACK    // 29
+                &phtl LS(LA(LCTRL)) C_AC_BACK    // 29
 
                 // Upper thumbs, left - positions 30-31
                 &none                  // 30
@@ -575,7 +586,11 @@
                 &none                  // 59
             >;
 
-            sensor-bindings = NOOP_SENSOR_BINDINGS;
+            sensor-bindings =
+                <&noop_sensor>,
+                <&noop_sensor>,
+                <&noop_sensor>,
+                <&noop_sensor>;
         };
 
         /*
@@ -603,15 +618,15 @@
                 &kp LA(RBKT)       // 11
 
                 // Row 1, left - positions 12-17
-                TAB_HOLD_BASE      // 12
+                &phtl_to BASE TAB      // 12
                 &phtl LGUI BSLH    // 13
                 &phtl LALT PRCNT   // 14
                 &phtl LCTRL HASH   // 15
                 &phtl LSHIFT DLLR  // 16
-                &kp HYPER          // 17
+                &kp LG(LS(LA(LCTRL)))          // 17
 
                 // Row 1, right - positions 18-23
-                &kp HYPER          // 18
+                &kp LG(LS(LA(LCTRL)))          // 18
                 &phtr LSHIFT AMPS  // 19
                 &phtr LCTRL QMARK  // 20
                 &phtr LALT LPAR    // 21
@@ -624,7 +639,7 @@
                 &kp CARET          // 26
                 &kp LS(COMMA)      // 27
                 &kp LS(DOT)        // 28
-                &kp MEH            // 29
+                &kp LS(LA(LCTRL))            // 29
 
                 // Upper thumbs, left - positions 30-31
                 &none              // 30
@@ -635,7 +650,7 @@
                 &none              // 33
 
                 // Row 2, right - positions 34-39
-                &kp MEH            // 34
+                &kp LS(LA(LCTRL))            // 34
                 &kp COLON          // 35
                 &kp EXCL           // 36
                 &kp SEMI           // 37
@@ -671,7 +686,11 @@
                 &none              // 59
             >;
 
-            sensor-bindings = NOOP_SENSOR_BINDINGS;
+            sensor-bindings =
+                <&noop_sensor>,
+                <&noop_sensor>,
+                <&noop_sensor>,
+                <&noop_sensor>;
         };
     };
 };
