@@ -1,11 +1,11 @@
 # Halcyon Kyria layout
 
-First layout, duplicate of the Voyager layout: https://configure.zsa.io/voyager/layouts/OwgPr/latest/0
+My own personal layout for my Halcyon Kyria (with dual encoders)
 
-# Editing
+## Canon moment
 
-Either directly edit the source files or edit in Keymap Editor: https://nickcoutsos.github.io/keymap-editor/
+Layout originated as a duplicate of my old Voyager layout: https://configure.zsa.io/voyager/layouts/OwgPr/latest/0
 
-# Background
+## Provenance
 
 Generated from splitkb/zmk-halcyon-config
