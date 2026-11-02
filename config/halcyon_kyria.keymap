@@ -153,7 +153,7 @@
         };
 
         /*
-         * Kyria encoder rotation deliberately does nothing for now.
+         * Kyria encoder "none" action
          */
         noop_sensor: noop_sensor {
             compatible = "zmk,behavior-sensor-rotate";
