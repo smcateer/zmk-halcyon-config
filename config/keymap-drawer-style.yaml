@@ -23,3 +23,9 @@ draw_config:
   # need their own dark background to look right in standalone viewers.
   svg_extra_style: |
     svg.keymap { background-color: #0e1117; }
+    /* Subtle positional indexes, distinct from the actual key legends. */
+    text.key.tl {
+      font-size: 7px;
+      fill: #7a828e;
+      opacity: 0.38;
+    }
