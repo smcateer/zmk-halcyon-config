@@ -185,16 +185,6 @@
          * show absolute position numbers, and a blank line separates hands.
          */
 
-        /*
-         * BASE
-         *
-         * Thumb cluster:
-         *
-         *   --  FUNC  NUM   E   NAV | SYM  Space  --  Bspc  --
-         *
-         * The "--" between Space and Backspace is the former
-         * Voyager dubs-layer key.
-         */
         base_layer {
             display-name = "Base";
 
@@ -379,24 +369,36 @@
                 &trans                      // 48
                 &none                       // 49
 
-                // Halcyon module positions, left - positions 50-54
-                &none                       // 50
+                // Encoder, left push action - position 50
+                &trans                       // 50
+
+                // Blank, left - unused encoder key positions 51-54
                 &none                       // 51
                 &none                       // 52
                 &none                       // 53
                 &none                       // 54
 
-                // Halcyon module positions, right - positions 55-59
+                // Blank, right - unused encoder key positions 55-58
                 &none                       // 55
                 &none                       // 56
                 &none                       // 57
                 &none                       // 58
-                &none                       // 59
+
+                // Encoder, right push action - position 59
+                &trans                      // 59
             >;
 
             sensor-bindings =
-                <&noop_sensor>,
-                <&noop_sensor>,
+
+                // Encoder, left twist actions (CW, CCW)
+                // Commented out for transparency
+                //<&noop_sensor>,
+
+                // Encoder, right twist actions (CW, CCW)
+                // Commented out for transparency
+                //<&noop_sensor>,
+
+                // Blank, unused soldered encoders
                 <&noop_sensor>,
                 <&noop_sensor>;
         };
@@ -481,24 +483,36 @@
                 &trans                      // 48
                 &none                       // 49
 
-                // Halcyon module positions, left - positions 50-54
-                &none                       // 50
+                // Encoder, left push action - position 50
+                &trans                      // 50
+
+                // Blank, left - unused encoder key positions 51-54
                 &none                       // 51
                 &none                       // 52
                 &none                       // 53
                 &none                       // 54
 
-                // Halcyon module positions, right - positions 55-59
+                // Blank, right - unused encoder key positions 55-58
                 &none                       // 55
                 &none                       // 56
                 &none                       // 57
                 &none                       // 58
-                &none                       // 59
+
+                // Encoder, right push action - position 59
+                &trans                      // 59
             >;
 
             sensor-bindings =
-                <&noop_sensor>,
-                <&noop_sensor>,
+
+                // Encoder, left twist actions (CW, CCW)
+                // Commented out for transparency
+                //<&noop_sensor>,
+
+                // Encoder, right twist actions (CW, CCW)
+                // Commented out for transparency
+                //<&noop_sensor>,
+
+                // Blank, unused soldered encoders
                 <&noop_sensor>,
                 <&noop_sensor>;
         };
@@ -581,24 +595,36 @@
                 &kp LC(BSPC)           // 48
                 &none                  // 49
 
-                // Halcyon module positions, left - positions 50-54
-                &none                  // 50
+                // Encoder, left push action - position 50
+                &trans                 // 50
+
+                // Blank, left - unused encoder key positions 51-54
                 &none                  // 51
                 &none                  // 52
                 &none                  // 53
                 &none                  // 54
 
-                // Halcyon module positions, right - positions 55-59
+                // Blank, right - unused encoder key positions 55-58
                 &none                  // 55
                 &none                  // 56
                 &none                  // 57
                 &none                  // 58
-                &none                  // 59
+
+                // Encoder, right push action - position 59
+                &trans                 // 59
             >;
 
             sensor-bindings =
-                <&noop_sensor>,
-                <&noop_sensor>,
+
+                // Encoder, left twist actions (CW, CCW)
+                // Commented out for transparency
+                //<&noop_sensor>,
+
+                // Encoder, right twist actions (CW, CCW)
+                // Commented out for transparency
+                //<&noop_sensor>,
+
+                // Blank, unused soldered encoders
                 <&noop_sensor>,
                 <&noop_sensor>;
         };
@@ -681,24 +707,36 @@
                 &trans             // 48
                 &none              // 49
 
-                // Halcyon module positions, left - positions 50-54
-                &none              // 50
+                // Encoder, left push action - position 50
+                &trans             // 50
+
+                // Blank, left - unused encoder key positions 51-54
                 &none              // 51
                 &none              // 52
                 &none              // 53
                 &none              // 54
 
-                // Halcyon module positions, right - positions 55-59
+                // Blank, right - unused encoder key positions 55-58
                 &none              // 55
                 &none              // 56
                 &none              // 57
                 &none              // 58
-                &none              // 59
+
+                // Encoder, right push action - position 59
+                &trans             // 59
             >;
 
             sensor-bindings =
-                <&noop_sensor>,
-                <&noop_sensor>,
+
+                // Encoder, left twist actions (CW, CCW)
+                // Commented out for transparency
+                //<&noop_sensor>,
+
+                // Encoder, right twist actions (CW, CCW)
+                // Commented out for transparency
+                //<&noop_sensor>,
+
+                // Blank, unused soldered encoders
                 <&noop_sensor>,
                 <&noop_sensor>;
         };
