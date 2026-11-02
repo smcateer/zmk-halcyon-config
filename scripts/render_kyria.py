@@ -121,9 +121,11 @@ def run(root, output_dir):
     source = (root / "config/halcyon_kyria.keymap").read_text(encoding="utf-8")
     keymap_editor_layout = json.loads((root / "config/halcyon_kyria.json").read_text(encoding="utf-8"))
     physical = keymap_editor_layout["layouts"]["halcyon_transform"]["layout"]
-    if len(physical) != 50:
-        raise ValueError(f"Expected 50 ordinary key positions, got {len(physical)}")
-    geometry = [{"x": k["x"], "y": k["y"]} for k in physical]
+    # The Keymap Editor JSON contains all 60 firmware positions, including
+    # eight unpopulated module slots. Only the first 50 are ordinary keys.
+    if len(physical) != 60:
+        raise ValueError(f"Expected 60 firmware positions, got {len(physical)}")
+    geometry = [{"x": k["x"], "y": k["y"]} for k in physical[:50]]
     geometry.extend([{"x": 6.5, "y": 0}, {"x": 8.5, "y": 0}])
     assert len(geometry) == len(VISIBLE_POSITIONS) == 52
 
