@@ -388,19 +388,18 @@
                 &trans                      // 59
             >;
 
-            sensor-bindings =
+            // Commented out for transparency - add explicit bindings for layer dependency
+            // sensor-bindings =
 
-                // Encoder, left twist actions (CW, CCW)
-                // Commented out for transparency
-                //<&noop_sensor>,
+            //     // Encoder, left twist actions (CW, CCW)
+            //     <&noop_sensor>,
 
-                // Encoder, right twist actions (CW, CCW)
-                // Commented out for transparency
-                //<&noop_sensor>,
+            //     // Encoder, right twist actions (CW, CCW)
+            //     <&noop_sensor>,
 
-                // Blank, unused soldered encoders
-                <&noop_sensor>,
-                <&noop_sensor>;
+            //     // Blank, unused soldered encoders
+            //     <&noop_sensor>,
+            //     <&noop_sensor>;
         };
 
         /*
@@ -502,19 +501,18 @@
                 &trans                      // 59
             >;
 
-            sensor-bindings =
+            // Commented out for transparency - add explicit bindings for layer dependency
+            // sensor-bindings =
 
-                // Encoder, left twist actions (CW, CCW)
-                // Commented out for transparency
-                //<&noop_sensor>,
+            //     // Encoder, left twist actions (CW, CCW)
+            //     <&noop_sensor>,
 
-                // Encoder, right twist actions (CW, CCW)
-                // Commented out for transparency
-                //<&noop_sensor>,
+            //     // Encoder, right twist actions (CW, CCW)
+            //     <&noop_sensor>,
 
-                // Blank, unused soldered encoders
-                <&noop_sensor>,
-                <&noop_sensor>;
+            //     // Blank, unused soldered encoders
+            //     <&noop_sensor>,
+            //     <&noop_sensor>;
         };
 
         /*
@@ -614,19 +612,18 @@
                 &trans                 // 59
             >;
 
-            sensor-bindings =
+            // Commented out for transparency - add explicit bindings for layer dependency
+            // sensor-bindings =
 
-                // Encoder, left twist actions (CW, CCW)
-                // Commented out for transparency
-                //<&noop_sensor>,
+            //     // Encoder, left twist actions (CW, CCW)
+            //     <&noop_sensor>,
 
-                // Encoder, right twist actions (CW, CCW)
-                // Commented out for transparency
-                //<&noop_sensor>,
+            //     // Encoder, right twist actions (CW, CCW)
+            //     <&noop_sensor>,
 
-                // Blank, unused soldered encoders
-                <&noop_sensor>,
-                <&noop_sensor>;
+            //     // Blank, unused soldered encoders
+            //     <&noop_sensor>,
+            //     <&noop_sensor>;
         };
 
         /*
@@ -726,19 +723,18 @@
                 &trans             // 59
             >;
 
-            sensor-bindings =
+            // Commented out for transparency - add explicit bindings for layer dependency
+            // sensor-bindings =
 
-                // Encoder, left twist actions (CW, CCW)
-                // Commented out for transparency
-                //<&noop_sensor>,
+            //     // Encoder, left twist actions (CW, CCW)
+            //     <&noop_sensor>,
 
-                // Encoder, right twist actions (CW, CCW)
-                // Commented out for transparency
-                //<&noop_sensor>,
+            //     // Encoder, right twist actions (CW, CCW)
+            //     <&noop_sensor>,
 
-                // Blank, unused soldered encoders
-                <&noop_sensor>,
-                <&noop_sensor>;
+            //     // Blank, unused soldered encoders
+            //     <&noop_sensor>,
+            //     <&noop_sensor>;
         };
     };
 };
