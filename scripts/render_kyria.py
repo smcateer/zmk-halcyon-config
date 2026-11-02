@@ -14,11 +14,15 @@ import re
 LAYERS = ("base_layer", "num_layer", "function_layer", "nav_layer", "sym_layer")
 VISIBLE_POSITIONS = list(range(51)) + [59]
 UNUSED_POSITIONS = set(range(51, 59))
-MODIFIERS = {"LG": "Win", "LC": "Ctrl", "LS": "Shift", "LA": "Alt",
-             "RG": "RWin", "RC": "RCtrl", "RS": "RShift", "RA": "RAlt"}
+# Symbolic modifier labels are for the SVG only; the ZMK keymap is unchanged.
+MODIFIERS = {"LG": "⌘", "LC": "∧", "LS": "⇧", "LA": "⎇",
+             "RG": "⌘", "RC": "∧", "RS": "⇧", "RA": "⎇"}
 KEY_NAMES = {
-    "LGUI": "Win", "LEFT_GUI": "Win", "LCTRL": "Ctrl", "LSHIFT": "Shift",
-    "LEFT_SHIFT": "Shift", "LALT": "Alt", "RCTRL": "RCtrl",
+    "LGUI": "⌘", "RGUI": "⌘", "LEFT_GUI": "⌘", "RIGHT_GUI": "⌘",
+    "LALT": "⎇", "RALT": "⎇", "LEFT_ALT": "⎇", "RIGHT_ALT": "⎇",
+    "LCTRL": "∧", "RCTRL": "∧", "LEFT_CTRL": "∧", "RIGHT_CTRL": "∧",
+    "LSHIFT": "⇧", "RSHIFT": "⇧", "LEFT_SHIFT": "⇧", "RIGHT_SHIFT": "⇧",
+    "HYPER": "✦", "MEH": "♣",
     "SPACE": "Space", "BSPC": "Bksp", "BACKSPACE": "Bksp", "DEL": "Del",
     "ENTER": "Enter", "ESC": "Esc", "ESCAPE": "Esc", "TAB": "Tab",
     "SQT": "'", "MINUS": "-", "EQUAL": "=", "PLUS": "+", "STAR": "*",
@@ -37,9 +41,14 @@ KEY_NAMES = {
 
 def code_label(code):
     code = code.strip()
+    # Collapse the full modifier chords to their customary layer legends.
+    if code == "LG(LS(LA(LCTRL)))":
+        return "✦"  # Hyper = Win+Shift+Alt+Ctrl
+    if code == "LS(LA(LCTRL))":
+        return "♣"  # Meh = Shift+Alt+Ctrl
     match = re.fullmatch(r"([A-Z]+)\((.*)\)", code)
     if match and match.group(1) in MODIFIERS:
-        return MODIFIERS[match.group(1)] + "+" + code_label(match.group(2))
+        return MODIFIERS[match.group(1)] + code_label(match.group(2))
     if re.fullmatch(r"N[0-9]", code):
         return code[1:]
     return KEY_NAMES.get(code, code)
