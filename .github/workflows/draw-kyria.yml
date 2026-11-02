@@ -6,12 +6,14 @@ on:
       - 'config/halcyon_kyria.keymap'
       - 'config/halcyon_kyria.json'
       - 'scripts/render_kyria.py'
+      - 'config/keymap-drawer-style.yaml'
       - '.github/workflows/draw-kyria.yml'
   pull_request:
     paths:
       - 'config/halcyon_kyria.keymap'
       - 'config/halcyon_kyria.json'
       - 'scripts/render_kyria.py'
+      - 'config/keymap-drawer-style.yaml'
       - '.github/workflows/draw-kyria.yml'
   workflow_dispatch:
 
@@ -31,7 +33,7 @@ jobs:
       - name: Convert Kyria keymap to keymap-drawer data
         run: python scripts/render_kyria.py
       - name: Draw all five layers using keymap-drawer
-        run: keymap draw -j diagrams/halcyon_kyria-layout.json diagrams/halcyon_kyria.yaml > diagrams/halcyon_kyria.svg
+        run: keymap -c config/keymap-drawer-style.yaml draw -j diagrams/halcyon_kyria-layout.json diagrams/halcyon_kyria.yaml > diagrams/halcyon_kyria.svg
       - uses: actions/upload-artifact@v4
         with:
           name: kyria-keymap-diagram
