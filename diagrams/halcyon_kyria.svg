@@ -134,6 +134,12 @@ text.trans { fill: #7e8184; }
 path.combo { stroke: #7f7f7f; }
 
 svg.keymap { background-color: #0e1117; }
+/* Subtle positional indexes, distinct from the actual key legends. */
+text.key.tl {
+  font-size: 7px;
+  fill: #7a828e;
+  opacity: 0.38;
+}
 </style>
 <g transform="translate(34, 0)" class="layer-Base">
 <text x="0" y="28" class="label" id="Base">Base:</text>
