@@ -5,7 +5,7 @@
 
 draw_config:
   dark_mode: true
-  n_columns: 2
+  n_columns: 1
 
   # Match the website's default keycap geometry and spacing.
   key_w: 60
