@@ -388,18 +388,9 @@
                 &trans                      // 59
             >;
 
-            // Commented out for transparency - add explicit bindings for layer dependency
-            // sensor-bindings =
+            // Encoder rotation inherits from lower active layers
+            // Include `sensor-bindings = ...` for to modify behaviour on this layer
 
-            //     // Encoder, left twist actions (CW, CCW)
-            //     <&noop_sensor>,
-
-            //     // Encoder, right twist actions (CW, CCW)
-            //     <&noop_sensor>,
-
-            //     // Blank, unused soldered encoders
-            //     <&noop_sensor>,
-            //     <&noop_sensor>;
         };
 
         /*
@@ -501,18 +492,9 @@
                 &trans                      // 59
             >;
 
-            // Commented out for transparency - add explicit bindings for layer dependency
-            // sensor-bindings =
+            // Encoder rotation inherits from lower active layers
+            // Include `sensor-bindings = ...` for to modify behaviour on this layer
 
-            //     // Encoder, left twist actions (CW, CCW)
-            //     <&noop_sensor>,
-
-            //     // Encoder, right twist actions (CW, CCW)
-            //     <&noop_sensor>,
-
-            //     // Blank, unused soldered encoders
-            //     <&noop_sensor>,
-            //     <&noop_sensor>;
         };
 
         /*
@@ -612,18 +594,9 @@
                 &trans                 // 59
             >;
 
-            // Commented out for transparency - add explicit bindings for layer dependency
-            // sensor-bindings =
+            // Encoder rotation inherits from lower active layers
+            // Include `sensor-bindings = ...` for to modify behaviour on this layer
 
-            //     // Encoder, left twist actions (CW, CCW)
-            //     <&noop_sensor>,
-
-            //     // Encoder, right twist actions (CW, CCW)
-            //     <&noop_sensor>,
-
-            //     // Blank, unused soldered encoders
-            //     <&noop_sensor>,
-            //     <&noop_sensor>;
         };
 
         /*
@@ -723,18 +696,9 @@
                 &trans             // 59
             >;
 
-            // Commented out for transparency - add explicit bindings for layer dependency
-            // sensor-bindings =
+            // Encoder rotation inherits from lower active layers
+            // Include `sensor-bindings = ...` for to modify behaviour on this layer
 
-            //     // Encoder, left twist actions (CW, CCW)
-            //     <&noop_sensor>,
-
-            //     // Encoder, right twist actions (CW, CCW)
-            //     <&noop_sensor>,
-
-            //     // Blank, unused soldered encoders
-            //     <&noop_sensor>,
-            //     <&noop_sensor>;
         };
     };
 };
