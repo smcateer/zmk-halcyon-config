@@ -1,4 +1,4 @@
-<svg width="1928" height="896" viewBox="0 0 1928 896" class="keymap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<svg width="964" height="1456" viewBox="0 0 964 1456" class="keymap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <style>/* inherit to force styles through use tags */
 svg path {
     fill: inherit;
@@ -441,7 +441,7 @@ text.key.tl {
 </g>
 </g>
 </g>
-<g transform="translate(998, 0)" class="layer-Num / Mouse">
+<g transform="translate(34, 280)" class="layer-Num / Mouse">
 <text x="0" y="28" class="label" id="Num--Mouse">Num / Mouse:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 28)" class="key keypos-0">
@@ -733,7 +733,7 @@ text.key.tl {
 </g>
 </g>
 </g>
-<g transform="translate(34, 280)" class="layer-Function">
+<g transform="translate(34, 560)" class="layer-Function">
 <text x="0" y="28" class="label" id="Function">Function:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 28)" class="key keypos-0">
@@ -1004,7 +1004,7 @@ text.key.tl {
 </g>
 </g>
 </g>
-<g transform="translate(998, 280)" class="layer-Navigation">
+<g transform="translate(34, 840)" class="layer-Navigation">
 <text x="0" y="28" class="label" id="Navigation">Navigation:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 28)" class="key keypos-0">
@@ -1280,7 +1280,7 @@ text.key.tl {
 </g>
 </g>
 </g>
-<g transform="translate(34, 560)" class="layer-Symbols">
+<g transform="translate(34, 1120)" class="layer-Symbols">
 <text x="0" y="28" class="label" id="Symbols">Symbols:</text>
 <g transform="translate(0, 56)">
 <g transform="translate(28, 28)" class="key keypos-0">
