@@ -3,7 +3,7 @@
     "Base": [
       {
         "tap": "Esc",
-        "hold": "Win+L",
+        "hold": "⌘L",
         "tl": "00"
       },
       {
@@ -56,52 +56,52 @@
       },
       {
         "tap": "R",
-        "hold": "Win",
+        "hold": "⌘",
         "tl": "13"
       },
       {
         "tap": "S",
-        "hold": "Alt",
+        "hold": "⎇",
         "tl": "14"
       },
       {
         "tap": "T",
-        "hold": "Ctrl",
+        "hold": "∧",
         "tl": "15"
       },
       {
         "tap": "H",
-        "hold": "Shift",
+        "hold": "⇧",
         "tl": "16"
       },
       {
         "tap": "K",
-        "hold": "Win+Shift+Alt+Ctrl",
+        "hold": "✦",
         "tl": "17"
       },
       {
         "tap": "X",
-        "hold": "Win+Shift+Alt+Ctrl",
+        "hold": "✦",
         "tl": "18"
       },
       {
         "tap": "N",
-        "hold": "Shift",
+        "hold": "⇧",
         "tl": "19"
       },
       {
         "tap": "A",
-        "hold": "Ctrl",
+        "hold": "∧",
         "tl": "20"
       },
       {
         "tap": "I",
-        "hold": "Alt",
+        "hold": "⎇",
         "tl": "21"
       },
       {
         "tap": "O",
-        "hold": "Win",
+        "hold": "⌘",
         "tl": "22"
       },
       {
@@ -113,7 +113,7 @@
         "tl": "24"
       },
       {
-        "tap": "Sticky Shift",
+        "tap": "Sticky ⇧",
         "tl": "25"
       },
       {
@@ -130,11 +130,11 @@
       },
       {
         "tap": "Q",
-        "hold": "Shift+Alt+Ctrl",
+        "hold": "♣",
         "tl": "29"
       },
       {
-        "tap": "Win",
+        "tap": "⌘",
         "tl": "30"
       },
       {
@@ -142,7 +142,7 @@
         "tl": "31"
       },
       {
-        "tap": "Ctrl+Bksp",
+        "tap": "∧Bksp",
         "tl": "32"
       },
       {
@@ -151,7 +151,7 @@
       },
       {
         "tap": "Z",
-        "hold": "Shift+Alt+Ctrl",
+        "hold": "♣",
         "tl": "34"
       },
       {
@@ -169,7 +169,7 @@
         "tl": "37"
       },
       {
-        "tap": "Sticky Shift",
+        "tap": "Sticky ⇧",
         "tl": "38"
       },
       {
@@ -217,10 +217,10 @@
         "tl": "49"
       },
       {
-        "tap": "Win+Tab",
+        "tap": "⌘Tab",
         "tl": "50",
-        "shifted": "↻ Win+Ctrl+→",
-        "hold": "↺ Win+Ctrl+←"
+        "shifted": "↻ ⌘∧→",
+        "hold": "↺ ⌘∧←"
       },
       {
         "tap": "Enc R",
@@ -243,11 +243,11 @@
         "tl": "02"
       },
       {
-        "tap": "Ctrl+-",
+        "tap": "∧-",
         "tl": "03"
       },
       {
-        "tap": "Ctrl+=",
+        "tap": "∧=",
         "tl": "04"
       },
       {
@@ -256,7 +256,7 @@
       },
       {
         "tap": "C_AL_CALC",
-        "hold": "Alt+F4",
+        "hold": "⎇F4",
         "tl": "06"
       },
       {
@@ -286,51 +286,51 @@
       },
       {
         "tap": "/",
-        "hold": "Win",
+        "hold": "⌘",
         "tl": "13"
       },
       {
         "tap": "*",
-        "hold": "Alt",
+        "hold": "⎇",
         "tl": "14"
       },
       {
         "tap": "-",
-        "hold": "Ctrl",
+        "hold": "∧",
         "tl": "15"
       },
       {
         "tap": "+",
-        "hold": "Shift",
+        "hold": "⇧",
         "tl": "16"
       },
       {
         "tap": "=",
-        "hold": "Win+Shift+Alt+Ctrl",
+        "hold": "✦",
         "tl": "17"
       },
       {
-        "tap": "Win+Shift+Alt+Ctrl",
+        "tap": "✦",
         "tl": "18"
       },
       {
         "tap": "4",
-        "hold": "Shift",
+        "hold": "⇧",
         "tl": "19"
       },
       {
         "tap": "5",
-        "hold": "Ctrl",
+        "hold": "∧",
         "tl": "20"
       },
       {
         "tap": "6",
-        "hold": "Alt",
+        "hold": "⎇",
         "tl": "21"
       },
       {
         "tap": "0",
-        "hold": "Win",
+        "hold": "⌘",
         "tl": "22"
       },
       {
@@ -360,7 +360,7 @@
       },
       {
         "tap": "Wheel←",
-        "hold": "Shift+Alt+Ctrl",
+        "hold": "♣",
         "tl": "29"
       },
       {
@@ -384,7 +384,7 @@
         "tl": "33"
       },
       {
-        "tap": "Shift+Alt+Ctrl",
+        "tap": "♣",
         "tl": "34"
       },
       {
@@ -464,8 +464,8 @@
       {
         "tap": "Enc R",
         "tl": "59",
-        "shifted": "↻ Ctrl+Tab",
-        "hold": "↺ Shift+Ctrl+Tab"
+        "shifted": "↻ ∧Tab",
+        "hold": "↺ ⇧∧Tab"
       }
     ],
     "Function": [
@@ -482,15 +482,15 @@
         "tl": "02"
       },
       {
-        "tap": "Ctrl+Shift+Tab",
+        "tap": "∧⇧Tab",
         "tl": "03"
       },
       {
-        "tap": "Ctrl+Tab",
+        "tap": "∧Tab",
         "tl": "04"
       },
       {
-        "tap": "Win+Tab",
+        "tap": "⌘Tab",
         "tl": "05"
       },
       {
@@ -523,23 +523,23 @@
         "tl": "12"
       },
       {
-        "tap": "Win",
+        "tap": "⌘",
         "tl": "13"
       },
       {
-        "tap": "Alt",
+        "tap": "⎇",
         "tl": "14"
       },
       {
-        "tap": "Ctrl",
+        "tap": "∧",
         "tl": "15"
       },
       {
-        "tap": "Shift",
+        "tap": "⇧",
         "tl": "16"
       },
       {
-        "tap": "Win+Shift+Alt+Ctrl",
+        "tap": "✦",
         "tl": "17"
       },
       {
@@ -588,7 +588,7 @@
         "tl": "28"
       },
       {
-        "tap": "Shift+Alt+Ctrl",
+        "tap": "♣",
         "tl": "29"
       },
       {
@@ -704,19 +704,19 @@
         "tl": "01"
       },
       {
-        "tap": "Ctrl+A",
+        "tap": "∧A",
         "tl": "02"
       },
       {
-        "tap": "Ctrl+Z",
+        "tap": "∧Z",
         "tl": "03"
       },
       {
-        "tap": "Ctrl+Y",
+        "tap": "∧Y",
         "tl": "04"
       },
       {
-        "tap": "Ctrl+R",
+        "tap": "∧R",
         "tl": "05"
       },
       {
@@ -749,23 +749,23 @@
         "tl": "12"
       },
       {
-        "tap": "Win",
+        "tap": "⌘",
         "tl": "13"
       },
       {
-        "tap": "Alt",
+        "tap": "⎇",
         "tl": "14"
       },
       {
-        "tap": "Ctrl",
+        "tap": "∧",
         "tl": "15"
       },
       {
-        "tap": "Shift",
+        "tap": "⇧",
         "tl": "16"
       },
       {
-        "tap": "Win+Shift+Alt+Ctrl",
+        "tap": "✦",
         "tl": "17"
       },
       {
@@ -798,26 +798,26 @@
         "tl": "24"
       },
       {
-        "tap": "Ctrl+X",
+        "tap": "∧X",
         "tl": "25"
       },
       {
-        "tap": "Ctrl+C",
-        "hold": "Ctrl+Shift+C",
+        "tap": "∧C",
+        "hold": "∧⇧C",
         "tl": "26"
       },
       {
-        "tap": "Ctrl+V",
-        "hold": "Ctrl+Shift+V",
+        "tap": "∧V",
+        "hold": "∧⇧V",
         "tl": "27"
       },
       {
-        "tap": "Win+V",
+        "tap": "⌘V",
         "tl": "28"
       },
       {
         "tap": "C_AC_BACK",
-        "hold": "Shift+Alt+Ctrl",
+        "hold": "♣",
         "tl": "29"
       },
       {
@@ -845,15 +845,15 @@
         "tl": "34"
       },
       {
-        "tap": "Ctrl+B",
+        "tap": "∧B",
         "tl": "35"
       },
       {
-        "tap": "Ctrl+I",
+        "tap": "∧I",
         "tl": "36"
       },
       {
-        "tap": "Ctrl+U",
+        "tap": "∧U",
         "tl": "37"
       },
       {
@@ -972,7 +972,7 @@
         "tl": "10"
       },
       {
-        "tap": "Alt+]",
+        "tap": "⎇]",
         "tl": "11"
       },
       {
@@ -982,50 +982,50 @@
       },
       {
         "tap": "\\",
-        "hold": "Win",
+        "hold": "⌘",
         "tl": "13"
       },
       {
         "tap": "%",
-        "hold": "Alt",
+        "hold": "⎇",
         "tl": "14"
       },
       {
         "tap": "#",
-        "hold": "Ctrl",
+        "hold": "∧",
         "tl": "15"
       },
       {
         "tap": "$",
-        "hold": "Shift",
+        "hold": "⇧",
         "tl": "16"
       },
       {
-        "tap": "Win+Shift+Alt+Ctrl",
+        "tap": "✦",
         "tl": "17"
       },
       {
-        "tap": "Win+Shift+Alt+Ctrl",
+        "tap": "✦",
         "tl": "18"
       },
       {
         "tap": "&",
-        "hold": "Shift",
+        "hold": "⇧",
         "tl": "19"
       },
       {
         "tap": "|",
-        "hold": "Ctrl",
+        "hold": "∧",
         "tl": "20"
       },
       {
         "tap": "(",
-        "hold": "Alt",
+        "hold": "⎇",
         "tl": "21"
       },
       {
         "tap": ")",
-        "hold": "Win",
+        "hold": "⌘",
         "tl": "22"
       },
       {
@@ -1054,7 +1054,7 @@
         "tl": "28"
       },
       {
-        "tap": "Shift+Alt+Ctrl",
+        "tap": "♣",
         "tl": "29"
       },
       {
@@ -1074,7 +1074,7 @@
         "tl": "33"
       },
       {
-        "tap": "Shift+Alt+Ctrl",
+        "tap": "♣",
         "tl": "34"
       },
       {
@@ -1094,7 +1094,7 @@
         "tl": "38"
       },
       {
-        "tap": "Ctrl+→",
+        "tap": "∧→",
         "tl": "39"
       },
       {
@@ -1147,8 +1147,8 @@
       {
         "tap": "Enc L",
         "tl": "50",
-        "shifted": "↻ Alt+Esc",
-        "hold": "↺ Alt+Shift+Esc"
+        "shifted": "↻ ⎇Esc",
+        "hold": "↺ ⎇⇧Esc"
       },
       {
         "tap": "Enc R",
