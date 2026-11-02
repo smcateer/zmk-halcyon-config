@@ -1,0 +1,1159 @@
+{
+  "layers": {
+    "Base": [
+      {
+        "tap": "Esc",
+        "hold": "Win+L",
+        "tl": "00"
+      },
+      {
+        "tap": "V",
+        "tl": "01"
+      },
+      {
+        "tap": "W",
+        "tl": "02"
+      },
+      {
+        "tap": "F",
+        "tl": "03"
+      },
+      {
+        "tap": "P",
+        "tl": "04"
+      },
+      {
+        "tap": "B",
+        "tl": "05"
+      },
+      {
+        "tap": "J",
+        "tl": "06"
+      },
+      {
+        "tap": "L",
+        "tl": "07"
+      },
+      {
+        "tap": "U",
+        "tl": "08"
+      },
+      {
+        "tap": "Y",
+        "tl": "09"
+      },
+      {
+        "tap": "'",
+        "tl": "10"
+      },
+      {
+        "tap": "CapsWord",
+        "tl": "11"
+      },
+      {
+        "tap": "Tab",
+        "tl": "12"
+      },
+      {
+        "tap": "R",
+        "hold": "Win",
+        "tl": "13"
+      },
+      {
+        "tap": "S",
+        "hold": "Alt",
+        "tl": "14"
+      },
+      {
+        "tap": "T",
+        "hold": "Ctrl",
+        "tl": "15"
+      },
+      {
+        "tap": "H",
+        "hold": "Shift",
+        "tl": "16"
+      },
+      {
+        "tap": "K",
+        "hold": "Win+Shift+Alt+Ctrl",
+        "tl": "17"
+      },
+      {
+        "tap": "X",
+        "hold": "Win+Shift+Alt+Ctrl",
+        "tl": "18"
+      },
+      {
+        "tap": "N",
+        "hold": "Shift",
+        "tl": "19"
+      },
+      {
+        "tap": "A",
+        "hold": "Ctrl",
+        "tl": "20"
+      },
+      {
+        "tap": "I",
+        "hold": "Alt",
+        "tl": "21"
+      },
+      {
+        "tap": "O",
+        "hold": "Win",
+        "tl": "22"
+      },
+      {
+        "tap": "-",
+        "tl": "23"
+      },
+      {
+        "tap": "Enter",
+        "tl": "24"
+      },
+      {
+        "tap": "Sticky Shift",
+        "tl": "25"
+      },
+      {
+        "tap": "C",
+        "tl": "26"
+      },
+      {
+        "tap": "G",
+        "tl": "27"
+      },
+      {
+        "tap": "D",
+        "tl": "28"
+      },
+      {
+        "tap": "Q",
+        "hold": "Shift+Alt+Ctrl",
+        "tl": "29"
+      },
+      {
+        "tap": "Win",
+        "tl": "30"
+      },
+      {
+        "tap": "To BASE",
+        "tl": "31"
+      },
+      {
+        "tap": "Ctrl+Bksp",
+        "tl": "32"
+      },
+      {
+        "tap": "Bksp",
+        "tl": "33"
+      },
+      {
+        "tap": "Z",
+        "hold": "Shift+Alt+Ctrl",
+        "tl": "34"
+      },
+      {
+        "tap": "M",
+        "tl": "35"
+      },
+      {
+        "tap": ",",
+        "shifted": "!",
+        "tl": "36"
+      },
+      {
+        "tap": ".",
+        "shifted": "?",
+        "tl": "37"
+      },
+      {
+        "tap": "Sticky Shift",
+        "tl": "38"
+      },
+      {
+        "tap": "–",
+        "tl": "39"
+      },
+      {
+        "tap": "Del",
+        "tl": "40"
+      },
+      {
+        "tap": "SL FUNC",
+        "tl": "41"
+      },
+      {
+        "tap": "SL NUM",
+        "tl": "42"
+      },
+      {
+        "tap": "E",
+        "tl": "43"
+      },
+      {
+        "tap": "SL NAV",
+        "tl": "44"
+      },
+      {
+        "tap": "SL SYM",
+        "tl": "45"
+      },
+      {
+        "tap": "Space",
+        "tl": "46"
+      },
+      {
+        "tap": "Repeat",
+        "tl": "47"
+      },
+      {
+        "tap": "@",
+        "tl": "48"
+      },
+      {
+        "tap": ":",
+        "tl": "49"
+      },
+      {
+        "tap": "Win+Tab",
+        "tl": "50",
+        "shifted": "↻ Win+Ctrl+→",
+        "hold": "↺ Win+Ctrl+←"
+      },
+      {
+        "tap": "Enc R",
+        "tl": "59",
+        "shifted": "↻ Wheel↓",
+        "hold": "↺ Wheel↑"
+      }
+    ],
+    "Num / Mouse": [
+      {
+        "tap": "Tog NUM",
+        "tl": "00"
+      },
+      {
+        "tap": "–",
+        "tl": "01"
+      },
+      {
+        "tap": "–",
+        "tl": "02"
+      },
+      {
+        "tap": "Ctrl+-",
+        "tl": "03"
+      },
+      {
+        "tap": "Ctrl+=",
+        "tl": "04"
+      },
+      {
+        "tap": "–",
+        "tl": "05"
+      },
+      {
+        "tap": "C_AL_CALC",
+        "hold": "Alt+F4",
+        "tl": "06"
+      },
+      {
+        "tap": "7",
+        "tl": "07"
+      },
+      {
+        "tap": "8",
+        "tl": "08"
+      },
+      {
+        "tap": "9",
+        "tl": "09"
+      },
+      {
+        "tap": ":",
+        "tl": "10"
+      },
+      {
+        "tap": "–",
+        "tl": "11"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "12"
+      },
+      {
+        "tap": "/",
+        "hold": "Win",
+        "tl": "13"
+      },
+      {
+        "tap": "*",
+        "hold": "Alt",
+        "tl": "14"
+      },
+      {
+        "tap": "-",
+        "hold": "Ctrl",
+        "tl": "15"
+      },
+      {
+        "tap": "+",
+        "hold": "Shift",
+        "tl": "16"
+      },
+      {
+        "tap": "=",
+        "hold": "Win+Shift+Alt+Ctrl",
+        "tl": "17"
+      },
+      {
+        "tap": "Win+Shift+Alt+Ctrl",
+        "tl": "18"
+      },
+      {
+        "tap": "4",
+        "hold": "Shift",
+        "tl": "19"
+      },
+      {
+        "tap": "5",
+        "hold": "Ctrl",
+        "tl": "20"
+      },
+      {
+        "tap": "6",
+        "hold": "Alt",
+        "tl": "21"
+      },
+      {
+        "tap": "0",
+        "hold": "Win",
+        "tl": "22"
+      },
+      {
+        "tap": "–",
+        "tl": "23"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "24"
+      },
+      {
+        "tap": "Mouse 4",
+        "tl": "25"
+      },
+      {
+        "tap": "Mouse 2",
+        "tl": "26"
+      },
+      {
+        "tap": "Mouse 3",
+        "tl": "27"
+      },
+      {
+        "tap": "Mouse 1",
+        "tl": "28"
+      },
+      {
+        "tap": "Wheel←",
+        "hold": "Shift+Alt+Ctrl",
+        "tl": "29"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "30"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "31"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "32"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "33"
+      },
+      {
+        "tap": "Shift+Alt+Ctrl",
+        "tl": "34"
+      },
+      {
+        "tap": "1",
+        "tl": "35"
+      },
+      {
+        "tap": "2",
+        "tl": "36"
+      },
+      {
+        "tap": "3",
+        "tl": "37"
+      },
+      {
+        "tap": ".",
+        "tl": "38"
+      },
+      {
+        "tap": "–",
+        "tl": "39"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "40"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "41"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "42"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "43"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "44"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "45"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "46"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "47"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "48"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "49"
+      },
+      {
+        "tap": "Enc L",
+        "tl": "50"
+      },
+      {
+        "tap": "Enc R",
+        "tl": "59",
+        "shifted": "↻ Ctrl+Tab",
+        "hold": "↺ Shift+Ctrl+Tab"
+      }
+    ],
+    "Function": [
+      {
+        "tap": "Tog FUNC",
+        "tl": "00"
+      },
+      {
+        "tap": "–",
+        "tl": "01"
+      },
+      {
+        "tap": "–",
+        "tl": "02"
+      },
+      {
+        "tap": "Ctrl+Shift+Tab",
+        "tl": "03"
+      },
+      {
+        "tap": "Ctrl+Tab",
+        "tl": "04"
+      },
+      {
+        "tap": "Win+Tab",
+        "tl": "05"
+      },
+      {
+        "tap": "INS",
+        "tl": "06"
+      },
+      {
+        "tap": "F7",
+        "tl": "07"
+      },
+      {
+        "tap": "F8",
+        "tl": "08"
+      },
+      {
+        "tap": "F9",
+        "tl": "09"
+      },
+      {
+        "tap": "F10",
+        "tl": "10"
+      },
+      {
+        "tap": "–",
+        "tl": "11"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "12"
+      },
+      {
+        "tap": "Win",
+        "tl": "13"
+      },
+      {
+        "tap": "Alt",
+        "tl": "14"
+      },
+      {
+        "tap": "Ctrl",
+        "tl": "15"
+      },
+      {
+        "tap": "Shift",
+        "tl": "16"
+      },
+      {
+        "tap": "Win+Shift+Alt+Ctrl",
+        "tl": "17"
+      },
+      {
+        "tap": "SCROLLLOCK",
+        "tl": "18"
+      },
+      {
+        "tap": "F4",
+        "tl": "19"
+      },
+      {
+        "tap": "F5",
+        "tl": "20"
+      },
+      {
+        "tap": "F6",
+        "tl": "21"
+      },
+      {
+        "tap": "F11",
+        "tl": "22"
+      },
+      {
+        "tap": "–",
+        "tl": "23"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "24"
+      },
+      {
+        "tap": "–",
+        "tl": "25"
+      },
+      {
+        "tap": "–",
+        "tl": "26"
+      },
+      {
+        "tap": "–",
+        "tl": "27"
+      },
+      {
+        "tap": "–",
+        "tl": "28"
+      },
+      {
+        "tap": "Shift+Alt+Ctrl",
+        "tl": "29"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "30"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "31"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "32"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "33"
+      },
+      {
+        "tap": "–",
+        "tl": "34"
+      },
+      {
+        "tap": "F1",
+        "tl": "35"
+      },
+      {
+        "tap": "F2",
+        "tl": "36"
+      },
+      {
+        "tap": "F3",
+        "tl": "37"
+      },
+      {
+        "tap": "F12",
+        "tl": "38"
+      },
+      {
+        "tap": "–",
+        "tl": "39"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "40"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "41"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "42"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "43"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "44"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "45"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "46"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "47"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "48"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "49"
+      },
+      {
+        "tap": "Enc L",
+        "tl": "50"
+      },
+      {
+        "tap": "Enc R",
+        "tl": "59"
+      }
+    ],
+    "Navigation": [
+      {
+        "tap": "Tog NAV",
+        "tl": "00"
+      },
+      {
+        "tap": "PrtSc",
+        "tl": "01"
+      },
+      {
+        "tap": "Ctrl+A",
+        "tl": "02"
+      },
+      {
+        "tap": "Ctrl+Z",
+        "tl": "03"
+      },
+      {
+        "tap": "Ctrl+Y",
+        "tl": "04"
+      },
+      {
+        "tap": "Ctrl+R",
+        "tl": "05"
+      },
+      {
+        "tap": "–",
+        "tl": "06"
+      },
+      {
+        "tap": "HOME",
+        "tl": "07"
+      },
+      {
+        "tap": "PgDn",
+        "tl": "08"
+      },
+      {
+        "tap": "PgUp",
+        "tl": "09"
+      },
+      {
+        "tap": "END",
+        "tl": "10"
+      },
+      {
+        "tap": "CAPSLOCK",
+        "tl": "11"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "12"
+      },
+      {
+        "tap": "Win",
+        "tl": "13"
+      },
+      {
+        "tap": "Alt",
+        "tl": "14"
+      },
+      {
+        "tap": "Ctrl",
+        "tl": "15"
+      },
+      {
+        "tap": "Shift",
+        "tl": "16"
+      },
+      {
+        "tap": "Win+Shift+Alt+Ctrl",
+        "tl": "17"
+      },
+      {
+        "tap": "–",
+        "tl": "18"
+      },
+      {
+        "tap": "←",
+        "tl": "19"
+      },
+      {
+        "tap": "↓",
+        "tl": "20"
+      },
+      {
+        "tap": "↑",
+        "tl": "21"
+      },
+      {
+        "tap": "→",
+        "tl": "22"
+      },
+      {
+        "tap": "K_APPLICATION",
+        "tl": "23"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "24"
+      },
+      {
+        "tap": "Ctrl+X",
+        "tl": "25"
+      },
+      {
+        "tap": "Ctrl+C",
+        "hold": "Ctrl+Shift+C",
+        "tl": "26"
+      },
+      {
+        "tap": "Ctrl+V",
+        "hold": "Ctrl+Shift+V",
+        "tl": "27"
+      },
+      {
+        "tap": "Win+V",
+        "tl": "28"
+      },
+      {
+        "tap": "C_AC_BACK",
+        "hold": "Shift+Alt+Ctrl",
+        "tl": "29"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "30"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "31"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "32"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "33"
+      },
+      {
+        "tap": "–",
+        "tl": "34"
+      },
+      {
+        "tap": "Ctrl+B",
+        "tl": "35"
+      },
+      {
+        "tap": "Ctrl+I",
+        "tl": "36"
+      },
+      {
+        "tap": "Ctrl+U",
+        "tl": "37"
+      },
+      {
+        "tap": "–",
+        "tl": "38"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "39"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "40"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "41"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "42"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "43"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "44"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "45"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "46"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "47"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "48"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "49"
+      },
+      {
+        "tap": "Enc L",
+        "tl": "50"
+      },
+      {
+        "tap": "Enc R",
+        "tl": "59",
+        "shifted": "↻ Wheel→",
+        "hold": "↺ Wheel←"
+      }
+    ],
+    "Symbols": [
+      {
+        "tap": "Tog SYM",
+        "tl": "00"
+      },
+      {
+        "tap": "–",
+        "tl": "01"
+      },
+      {
+        "tap": "–",
+        "tl": "02"
+      },
+      {
+        "tap": "~",
+        "tl": "03"
+      },
+      {
+        "tap": "GRAVE",
+        "tl": "04"
+      },
+      {
+        "tap": "–",
+        "tl": "05"
+      },
+      {
+        "tap": "–",
+        "tl": "06"
+      },
+      {
+        "tap": "[",
+        "tl": "07"
+      },
+      {
+        "tap": "]",
+        "tl": "08"
+      },
+      {
+        "tap": "{",
+        "tl": "09"
+      },
+      {
+        "tap": "}",
+        "tl": "10"
+      },
+      {
+        "tap": "Alt+]",
+        "tl": "11"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "12"
+      },
+      {
+        "tap": "\\",
+        "hold": "Win",
+        "tl": "13"
+      },
+      {
+        "tap": "%",
+        "hold": "Alt",
+        "tl": "14"
+      },
+      {
+        "tap": "#",
+        "hold": "Ctrl",
+        "tl": "15"
+      },
+      {
+        "tap": "$",
+        "hold": "Shift",
+        "tl": "16"
+      },
+      {
+        "tap": "Win+Shift+Alt+Ctrl",
+        "tl": "17"
+      },
+      {
+        "tap": "Win+Shift+Alt+Ctrl",
+        "tl": "18"
+      },
+      {
+        "tap": "&",
+        "hold": "Shift",
+        "tl": "19"
+      },
+      {
+        "tap": "|",
+        "hold": "Ctrl",
+        "tl": "20"
+      },
+      {
+        "tap": "(",
+        "hold": "Alt",
+        "tl": "21"
+      },
+      {
+        "tap": ")",
+        "hold": "Win",
+        "tl": "22"
+      },
+      {
+        "tap": "&c.",
+        "tl": "23"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "24"
+      },
+      {
+        "tap": "–",
+        "tl": "25"
+      },
+      {
+        "tap": "^",
+        "tl": "26"
+      },
+      {
+        "tap": "<",
+        "tl": "27"
+      },
+      {
+        "tap": ">",
+        "tl": "28"
+      },
+      {
+        "tap": "Shift+Alt+Ctrl",
+        "tl": "29"
+      },
+      {
+        "tap": "–",
+        "tl": "30"
+      },
+      {
+        "tap": "–",
+        "tl": "31"
+      },
+      {
+        "tap": "–",
+        "tl": "32"
+      },
+      {
+        "tap": "–",
+        "tl": "33"
+      },
+      {
+        "tap": "Shift+Alt+Ctrl",
+        "tl": "34"
+      },
+      {
+        "tap": ";",
+        "tl": "35"
+      },
+      {
+        "tap": "–",
+        "tl": "36"
+      },
+      {
+        "tap": "–",
+        "tl": "37"
+      },
+      {
+        "tap": "–",
+        "tl": "38"
+      },
+      {
+        "tap": "Ctrl+→",
+        "tl": "39"
+      },
+      {
+        "tap": "–",
+        "tl": "40"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "41"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "42"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "43"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "44"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "45"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "46"
+      },
+      {
+        "tap": "–",
+        "tl": "47"
+      },
+      {
+        "tap": "▽",
+        "type": "trans",
+        "tl": "48"
+      },
+      {
+        "tap": "–",
+        "tl": "49"
+      },
+      {
+        "tap": "Enc L",
+        "tl": "50",
+        "shifted": "↻ Alt+Esc",
+        "hold": "↺ Alt+Shift+Esc"
+      },
+      {
+        "tap": "Enc R",
+        "tl": "59"
+      }
+    ]
+  }
+}
