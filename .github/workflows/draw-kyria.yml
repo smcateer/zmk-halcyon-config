@@ -27,7 +27,7 @@ jobs:
         with:
           python-version: '3.12'
       - name: Install keymap-drawer
-        run: python -m pip install keymap-drawer==0.22.0
+        run: python -m pip install keymap-drawer==0.23.0
       - name: Convert Kyria keymap to keymap-drawer data
         run: python scripts/render_kyria.py
       - name: Draw all five layers using keymap-drawer
