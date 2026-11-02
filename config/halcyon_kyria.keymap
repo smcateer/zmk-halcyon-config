@@ -278,7 +278,7 @@
                 &none             // 53
                 &none             // 54
 
-                // Blank, left - unused encoder key positions 55-58
+                // Blank, right - unused encoder key positions 55-58
                 &none             // 55
                 &none             // 56
                 &none             // 57
@@ -290,10 +290,10 @@
 
             sensor-bindings =
 
-                // Encoder, left twist actions (CCW, CW)
+                // Encoder, left twist actions (CW, CCW)
                 <&inc_dec_kp C_VOL_UP C_VOL_DN>,
 
-                // Encoder, right twist actions (CCW, CW)
+                // Encoder, right twist actions (CW, CCW)
                 <&inc_dec_kp PG_DN PG_UP>,
 
                 // Blank, unused soldered encoders
