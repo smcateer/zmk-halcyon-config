@@ -36,6 +36,11 @@
              40 41 42 43 44 \
     50 // encoder
 
+// Other positional hold-taps initially use the same opposite-hand sets.
+// Keep separate names so their trigger policies can diverge later.
+#define LEFT_HOLD_TRIGGERS  LEFT_HRM_TRIGGERS
+#define RIGHT_HOLD_TRIGGERS RIGHT_HRM_TRIGGERS
+
 / {
     behaviors {
         // Home-row mods.
@@ -102,26 +107,6 @@
             hold-trigger-on-release;
         };
 
-        /* REDUNDANT -- REMOVE
-         * Voyager DUAL_FUNC_1:
-         * tap = Tab
-         * hold = return to Base
-         */
-        phtl_to: positional_hold_tap_to_layer_left {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            display-name = "Layer Return Tap Left";
-
-            flavor = "balanced";
-            tapping-term-ms = <HOLD_TAP_TERM_MS>;
-
-            bindings = <&to>, <&kp>;
-
-            hold-trigger-key-positions = <LEFT_HOLD_TRIGGERS>;
-
-            hold-trigger-on-release;
-        };
-
         /*
          * Meh on hold / horizontal-wheel-left on tap.
          */
@@ -141,12 +126,34 @@
         };
 
         /*
-         * Kyria encoder "none" action
+         * Ignore rotation for unused encoders / intentionally disabled layers
          */
         noop_sensor: noop_sensor {
             compatible = "zmk,behavior-sensor-rotate";
             #sensor-binding-cells = <0>;
             bindings = <&none>, <&none>;
+        };
+
+        // Encoder-driven mouse scrolling.
+        scroll_encoder: scroll_encoder {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&msc>, <&msc>;
+        };
+
+        // Shift-dependent punctuation on the Base layer.
+        dot_qmark: dot_question {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp QMARK>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
+        };
+
+        comma_excl: comma_exclamation {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp EXCL>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
         };
     };
 
@@ -194,7 +201,7 @@
                 &caps_word        // 11
 
                 // Row 1, left - positions 12-17
-                &phtl LSHIFT TAB  // 12
+                &kp TAB           // 12
                 &hml LGUI R       // 13
                 &hml LALT S       // 14
                 &hml LCTRL T      // 15
@@ -218,23 +225,20 @@
                 &hml LS(LA(LCTRL)) Q        // 29
 
                 // Upper thumbs, left - positions 30-31
-                &none             // 30
-                &none             // 31
-
+                &kp LGUI          // 30
+                &to BASE          // 31
                 // Upper thumbs, right - positions 32-33
-                &none             // 32
-                &none             // 33
-
+                &kp LC(BACKSPACE) // 32
+                &kp BACKSPACE     // 33
                 // Row 2, right - positions 34-39
                 &hmr LS(LA(LCTRL)) Z        // 34
                 &kp M             // 35
-                &kp COMMA         // 36
-                &kp DOT           // 37
+                &comma_excl       // 36
+                &dot_qmark        // 37
                 &sk LSHIFT        // 38
-                &kp AT            // 39
-
+                &none             // 39
                 // Thumbs, left - positions 40-44
-                &none             // 40
+                &kp DEL           // 40
                 &sl FUNC          // 41
                 &sl NUM           // 42
                 &kp E             // 43
@@ -243,13 +247,11 @@
                 // Thumbs, right - positions 45-49
                 &sl SYM           // 45
                 &kp SPACE         // 46
-                &none             // 47
-                &kp BSPC          // 48
-                &none             // 49
-
+                &key_repeat       // 47
+                &kp AT            // 48
+                &kp COLON         // 49
                 // Encoder, left push action - position 50
-                &kp ENTER         // 50
-
+                &kp LG(TAB)       // 50
                 // Blank, left - unused encoder key positions 51-54
                 &none             // 51
                 &none             // 52
@@ -263,19 +265,17 @@
                 &none             // 58
 
                 // Encoder, right push action - position 59
-                &kp ESC           // 59
+                &none             // 59
             >;
 
             sensor-bindings =
-
-                // Encoder, left twist actions (CW, CCW)
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-
-                // Encoder, right twist actions (CW, CCW)
-                <&inc_dec_kp PG_DN PG_UP>,
-
-                // Blank, unused soldered encoders
+                // Left Halcyon encoder
+                <&inc_dec_kp LG(LC(RIGHT)) LG(LC(LEFT))>,
+                // Right Halcyon encoder
+                <&scroll_encoder SCRL_DOWN SCRL_UP>,
+                // Unused left soldered encoder
                 <&noop_sensor>,
+                // Unused right soldered encoder
                 <&noop_sensor>;
         };
 
@@ -290,7 +290,7 @@
                 // Row 0, left - positions 0-5
                 &tog NUM                    // 0
                 &none                       // 1
-                &kp DEL                     // 2
+                &none             // 02
                 &kp LC(MINUS)               // 3
                 &kp LC(EQUAL)               // 4
                 &none                       // 5
@@ -304,7 +304,7 @@
                 &none                       // 11
 
                 // Row 1, left - positions 12-17
-                &phtl_to BASE TAB               // 12
+                &trans            // 12
                 &phtl LGUI FSLH             // 13
                 &phtl LALT STAR             // 14
                 &phtl LCTRL MINUS           // 15
@@ -328,13 +328,11 @@
                 &phtl_scroll LS(LA(LCTRL)) SCRL_LEFT  // 29
 
                 // Upper thumbs, left - positions 30-31
-                &none                       // 30
-                &none                       // 31
-
+                &trans            // 30
+                &trans            // 31
                 // Upper thumbs, right - positions 32-33
-                &none                       // 32
-                &none                       // 33
-
+                &trans            // 32
+                &trans            // 33
                 // Row 2, right - positions 34-39
                 &kp LS(LA(LCTRL))                     // 34
                 &kp N1                      // 35
@@ -344,7 +342,7 @@
                 &none                       // 39
 
                 // Thumbs, left - positions 40-44
-                &none                       // 40
+                &trans            // 40
                 &trans                      // 41
                 &trans                      // 42
                 &trans                      // 43
@@ -353,13 +351,11 @@
                 // Thumbs, right - positions 45-49
                 &trans                      // 45
                 &trans                      // 46
-                &none                       // 47
+                &trans            // 47
                 &trans                      // 48
-                &none                       // 49
-
+                &trans            // 49
                 // Encoder, left push action - position 50
-                &trans                       // 50
-
+                &none             // 50
                 // Blank, left - unused encoder key positions 51-54
                 &none                       // 51
                 &none                       // 52
@@ -373,11 +369,18 @@
                 &none                       // 58
 
                 // Encoder, right push action - position 59
-                &trans                      // 59
+                &none             // 59
             >;
 
-            // Encoder rotation inherits from lower active layers
-            // Include `sensor-bindings = ...` for to modify behaviour on this layer
+            sensor-bindings =
+                // Left Halcyon encoder
+                <&noop_sensor>,
+                // Right Halcyon encoder
+                <&inc_dec_kp LC(TAB) LS(LC(TAB))>,
+                // Unused left soldered encoder
+                <&noop_sensor>,
+                // Unused right soldered encoder
+                <&noop_sensor>;
 
         };
 
@@ -393,7 +396,7 @@
             bindings = <
                 // Row 0, left - positions 0-5
                 &tog FUNC                   // 0
-                &trans                      // 1
+                &none             // 01
                 &none                       // 2
                 &kp LC(LS(TAB))             // 3
                 &kp LC(TAB)                 // 4
@@ -405,14 +408,13 @@
                 &kp F8                      // 8
                 &kp F9                      // 9
                 &kp F10                     // 10
-                &trans                      // 11
-
+                &none             // 11
                 // Row 1, left - positions 12-17
-                &phtl_to BASE TAB               // 12
+                &trans            // 12
                 &kp LGUI                    // 13
                 &kp LALT                    // 14
-                &phtl LCTRL LG(LC(LEFT))    // 15
-                &phtl LSHIFT LG(LC(RIGHT))  // 16
+                &kp LCTRL               // 15
+                &kp LEFT_SHIFT            // 16
                 &kp LG(LS(LA(LCTRL)))                   // 17
 
                 // Row 1, right - positions 18-23
@@ -427,18 +429,16 @@
                 &trans                      // 24
                 &none                       // 25
                 &none                       // 26
-                &kp LA(LC(LS(TAB)))         // 27
-                &kp LA(LC(TAB))             // 28
+                &none              // 27
+                &none             // 28
                 &kp LS(LA(LCTRL))                     // 29
 
                 // Upper thumbs, left - positions 30-31
-                &none                       // 30
-                &none                       // 31
-
+                &trans            // 30
+                &trans            // 31
                 // Upper thumbs, right - positions 32-33
-                &none                       // 32
-                &none                       // 33
-
+                &trans            // 32
+                &trans            // 33
                 // Row 2, right - positions 34-39
                 &none                       // 34
                 &kp F1                      // 35
@@ -448,7 +448,7 @@
                 &none                       // 39
 
                 // Thumbs, left - positions 40-44
-                &none                       // 40
+                &trans            // 40
                 &trans                      // 41
                 &trans                      // 42
                 &trans                      // 43
@@ -457,13 +457,11 @@
                 // Thumbs, right - positions 45-49
                 &trans                      // 45
                 &trans                      // 46
-                &none                       // 47
+                &trans            // 47
                 &trans                      // 48
-                &none                       // 49
-
+                &trans            // 49
                 // Encoder, left push action - position 50
-                &trans                      // 50
-
+                &none             // 50
                 // Blank, left - unused encoder key positions 51-54
                 &none                       // 51
                 &none                       // 52
@@ -477,11 +475,18 @@
                 &none                       // 58
 
                 // Encoder, right push action - position 59
-                &trans                      // 59
+                &none             // 59
             >;
 
-            // Encoder rotation inherits from lower active layers
-            // Include `sensor-bindings = ...` for to modify behaviour on this layer
+            sensor-bindings =
+                // Left Halcyon encoder
+                <&noop_sensor>,
+                // Right Halcyon encoder
+                <&noop_sensor>,
+                // Unused left soldered encoder
+                <&noop_sensor>,
+                // Unused right soldered encoder
+                <&noop_sensor>;
 
         };
 
@@ -502,7 +507,7 @@
                 &kp LC(R)              // 5
 
                 // Row 0, right - positions 6-11
-                &kp LC(B)              // 6
+                &none             // 06
                 &kp HOME               // 7
                 &kp PG_DN              // 8
                 &kp PG_UP              // 9
@@ -510,7 +515,7 @@
                 &kp CAPSLOCK           // 11
 
                 // Row 1, left - positions 12-17
-                &phtl_to BASE TAB          // 12
+                &trans            // 12
                 &kp LGUI               // 13
                 &kp LALT               // 14
                 &kp LCTRL              // 15
@@ -518,7 +523,7 @@
                 &kp LG(LS(LA(LCTRL)))              // 17
 
                 // Row 1, right - positions 18-23
-                &kp LC(I)              // 18
+                &none             // 18
                 &kp LEFT               // 19
                 &kp DOWN               // 20
                 &kp UP                 // 21
@@ -534,23 +539,21 @@
                 &phtl LS(LA(LCTRL)) C_AC_BACK    // 29
 
                 // Upper thumbs, left - positions 30-31
-                &none                  // 30
-                &none                  // 31
-
+                &trans            // 30
+                &trans            // 31
                 // Upper thumbs, right - positions 32-33
-                &none                  // 32
-                &none                  // 33
-
+                &trans            // 32
+                &trans            // 33
                 // Row 2, right - positions 34-39
-                &kp LC(U)              // 34
-                &none                  // 35
-                &none                  // 36
-                &none                  // 37
+                &none             // 34
+                &kp LC(B)         // 35
+                &kp LC(I)         // 36
+                &kp LC(U)         // 37
                 &none                  // 38
                 &trans                 // 39
 
                 // Thumbs, left - positions 40-44
-                &none                  // 40
+                &trans            // 40
                 &trans                 // 41
                 &trans                 // 42
                 &trans                 // 43
@@ -559,13 +562,11 @@
                 // Thumbs, right - positions 45-49
                 &trans                 // 45
                 &trans                 // 46
-                &none                  // 47
-                &kp LC(BSPC)           // 48
-                &none                  // 49
-
+                &trans            // 47
+                &trans            // 48
+                &trans            // 49
                 // Encoder, left push action - position 50
-                &trans                 // 50
-
+                &none             // 50
                 // Blank, left - unused encoder key positions 51-54
                 &none                  // 51
                 &none                  // 52
@@ -579,11 +580,18 @@
                 &none                  // 58
 
                 // Encoder, right push action - position 59
-                &trans                 // 59
+                &none             // 59
             >;
 
-            // Encoder rotation inherits from lower active layers
-            // Include `sensor-bindings = ...` for to modify behaviour on this layer
+            sensor-bindings =
+                // Left Halcyon encoder
+                <&noop_sensor>,
+                // Right Halcyon encoder
+                <&scroll_encoder SCRL_RIGHT SCRL_LEFT>,
+                // Unused left soldered encoder
+                <&noop_sensor>,
+                // Unused right soldered encoder
+                <&noop_sensor>;
 
         };
 
@@ -612,7 +620,7 @@
                 &kp LA(RBKT)       // 11
 
                 // Row 1, left - positions 12-17
-                &phtl_to BASE TAB      // 12
+                &trans            // 12
                 &phtl LGUI BSLH    // 13
                 &phtl LALT PRCNT   // 14
                 &phtl LCTRL HASH   // 15
@@ -622,7 +630,7 @@
                 // Row 1, right - positions 18-23
                 &kp LG(LS(LA(LCTRL)))          // 18
                 &phtr LSHIFT AMPS  // 19
-                &phtr LCTRL QMARK  // 20
+                &phtr LCTRL PIPE  // 20
                 &phtr LALT LPAR    // 21
                 &phtr LGUI RPAR    // 22
                 &m_amp_c_dot       // 23
@@ -631,8 +639,8 @@
                 &trans             // 24
                 &none              // 25
                 &kp CARET          // 26
-                &kp LS(COMMA)      // 27
-                &kp LS(DOT)        // 28
+                &kp LESS_THAN     // 27
+                &kp GREATER_THAN  // 28
                 &kp LS(LA(LCTRL))            // 29
 
                 // Upper thumbs, left - positions 30-31
@@ -645,10 +653,10 @@
 
                 // Row 2, right - positions 34-39
                 &kp LS(LA(LCTRL))            // 34
-                &kp COLON          // 35
-                &kp EXCL           // 36
-                &kp SEMI           // 37
-                &kp PIPE           // 38
+                &kp SEMI          // 35
+                &none             // 36
+                &none             // 37
+                &none             // 38
                 &kp LC(RIGHT)      // 39
 
                 // Thumbs, left - positions 40-44
@@ -666,8 +674,7 @@
                 &none              // 49
 
                 // Encoder, left push action - position 50
-                &trans             // 50
-
+                &none             // 50
                 // Blank, left - unused encoder key positions 51-54
                 &none              // 51
                 &none              // 52
@@ -681,11 +688,18 @@
                 &none              // 58
 
                 // Encoder, right push action - position 59
-                &trans             // 59
+                &none             // 59
             >;
 
-            // Encoder rotation inherits from lower active layers
-            // Include `sensor-bindings = ...` for to modify behaviour on this layer
+            sensor-bindings =
+                // Left Halcyon encoder
+                <&inc_dec_kp LA(ESCAPE) LA(LS(ESCAPE))>,
+                // Right Halcyon encoder
+                <&noop_sensor>,
+                // Unused left soldered encoder
+                <&noop_sensor>,
+                // Unused right soldered encoder
+                <&noop_sensor>;
 
         };
     };
