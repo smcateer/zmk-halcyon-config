@@ -1,0 +1,59 @@
+# Appearance only. This file does not affect the ZMK firmware or keymap parser.
+# Try changes here; the SVG will regenerate automatically on push.
+draw_config:
+  n_columns: 2
+  key_rx: 9
+  key_ry: 9
+  inner_pad_w: 4
+  inner_pad_h: 4
+  outer_pad_w: 34
+  outer_pad_h: 46
+  draw_key_sides: true
+  shrink_wide_legends: 7
+
+  svg_extra_style: |
+    /* Clean, subtle keycaps and a system-sans typography. */
+    svg.keymap {
+      font-family: "Segoe UI", Inter, Arial, sans-serif;
+      font-size: 14px;
+      fill: #253247;
+      text-rendering: optimizeLegibility;
+    }
+    rect.key {
+      fill: #f7f9fc;
+      stroke: #b7c5d5;
+      stroke-width: 1.2;
+    }
+    rect.side {
+      fill: #e6ecf3;
+      stroke: #b7c5d5;
+    }
+    text.label {
+      font-size: 19px;
+      font-weight: 700;
+      fill: #253247;
+      stroke: none;
+    }
+    text.tap {
+      font-weight: 600;
+    }
+    text.hold {
+      fill: #4966b4;
+      font-size: 10px;
+      font-weight: 600;
+    }
+    text.shifted {
+      fill: #a46f2f;
+      font-size: 10px;
+    }
+    text.tl {
+      fill: #8797a9;
+      font-size: 9px;
+    }
+    text.trans {
+      fill: #9da9b7;
+    }
+    text.layer-activator {
+      fill: #466f9b;
+      text-decoration: none;
+    }
