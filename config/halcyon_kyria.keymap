@@ -36,6 +36,11 @@
              40 41 42 43 44 \
     50 // encoder
 
+// Other positional hold-taps initially use the same opposite-hand sets.
+// Keep separate names so their trigger policies can diverge later.
+#define LEFT_HOLD_TRIGGERS  LEFT_HRM_TRIGGERS
+#define RIGHT_HOLD_TRIGGERS RIGHT_HRM_TRIGGERS
+
 / {
     behaviors {
         // Home-row mods.
@@ -148,6 +153,28 @@
             #sensor-binding-cells = <0>;
             bindings = <&none>, <&none>;
         };
+
+        // Encoder-driven mouse scrolling.
+        scroll_encoder: scroll_encoder {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&msc>, <&msc>;
+        };
+
+        // Shift-dependent punctuation on the Base layer.
+        dot_qmark: dot_question {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp DOT>, <&kp QMARK>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
+        };
+
+        comma_excl: comma_exclamation {
+            compatible = "zmk,behavior-mod-morph";
+            #binding-cells = <0>;
+            bindings = <&kp COMMA>, <&kp EXCL>;
+            mods = <(MOD_LSFT | MOD_RSFT)>;
+        };
     };
 
     /*
@@ -194,7 +221,7 @@
                 &caps_word        // 11
 
                 // Row 1, left - positions 12-17
-                &phtl LSHIFT TAB  // 12
+                &kp TAB           // 12
                 &hml LGUI R       // 13
                 &hml LALT S       // 14
                 &hml LCTRL T      // 15
@@ -218,23 +245,20 @@
                 &hml LS(LA(LCTRL)) Q        // 29
 
                 // Upper thumbs, left - positions 30-31
-                &none             // 30
-                &none             // 31
-
+                &kp LGUI          // 30
+                &to BASE          // 31
                 // Upper thumbs, right - positions 32-33
-                &none             // 32
-                &none             // 33
-
+                &kp LC(BACKSPACE) // 32
+                &kp BACKSPACE     // 33
                 // Row 2, right - positions 34-39
                 &hmr LS(LA(LCTRL)) Z        // 34
                 &kp M             // 35
-                &kp COMMA         // 36
-                &kp DOT           // 37
+                &comma_excl       // 36
+                &dot_qmark        // 37
                 &sk LSHIFT        // 38
-                &kp AT            // 39
-
+                &none             // 39
                 // Thumbs, left - positions 40-44
-                &none             // 40
+                &kp DEL           // 40
                 &sl FUNC          // 41
                 &sl NUM           // 42
                 &kp E             // 43
@@ -243,13 +267,11 @@
                 // Thumbs, right - positions 45-49
                 &sl SYM           // 45
                 &kp SPACE         // 46
-                &none             // 47
-                &kp BSPC          // 48
-                &none             // 49
-
+                &key_repeat       // 47
+                &kp AT            // 48
+                &kp COLON         // 49
                 // Encoder, left push action - position 50
-                &kp ENTER         // 50
-
+                &kp LG(TAB)       // 50
                 // Blank, left - unused encoder key positions 51-54
                 &none             // 51
                 &none             // 52
@@ -263,7 +285,7 @@
                 &none             // 58
 
                 // Encoder, right push action - position 59
-                &kp ESC           // 59
+                &none             // 59
             >;
 
             sensor-bindings =
