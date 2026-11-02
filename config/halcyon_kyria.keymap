@@ -38,14 +38,7 @@
 
 / {
     behaviors {
-        /*
-         * Home-row mods.
-         *
-         * Approximation of the Voyager:
-         *   FLOW_TAP_TERM 100
-         *   CHORDAL_HOLD
-         *   PERMISSIVE_HOLD
-         */
+        // Home-row mods.
         hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -78,10 +71,7 @@
             hold-trigger-on-release;
         };
 
-        /*
-         * Other Voyager tap/hold keys.
-         * Same positional/chordal logic, but without Flow Tap.
-         */
+        // Hold-taps
         phtl: positional_hold_tap_left {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -112,7 +102,7 @@
             hold-trigger-on-release;
         };
 
-        /*
+        /* REDUNDANT -- REMOVE
          * Voyager DUAL_FUNC_1:
          * tap = Tab
          * hold = return to Base
