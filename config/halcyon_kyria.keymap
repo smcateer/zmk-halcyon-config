@@ -8,6 +8,11 @@
 #define NAV  3
 #define SYM  4
 
+// Shared timing parameters (milliseconds).
+// Prior-idle is used only by the home-row modifiers.
+#define HOLD_TAP_TERM_MS 200
+#define HOME_ROW_PRIOR_IDLE_MS 100
+
 // Opposite-hand key positions that trigger positional hold-taps.
 // "Left" and "Right" refer to the hand with the hold-tap key.
 #define LEFT_HOLD_TRIGGERS \
@@ -38,8 +43,8 @@
             display-name = "Home Row Mod Left";
 
             flavor = "balanced";
-            tapping-term-ms = <200>;
-            require-prior-idle-ms = <100>;
+            tapping-term-ms = <HOLD_TAP_TERM_MS>;
+            require-prior-idle-ms = <HOME_ROW_PRIOR_IDLE_MS>;
 
             bindings = <&kp>, <&kp>;
 
@@ -54,8 +59,8 @@
             display-name = "Home Row Mod Right";
 
             flavor = "balanced";
-            tapping-term-ms = <200>;
-            require-prior-idle-ms = <100>;
+            tapping-term-ms = <HOLD_TAP_TERM_MS>;
+            require-prior-idle-ms = <HOME_ROW_PRIOR_IDLE_MS>;
 
             bindings = <&kp>, <&kp>;
 
@@ -74,7 +79,7 @@
             display-name = "Positional Hold Tap Left";
 
             flavor = "balanced";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <HOLD_TAP_TERM_MS>;
 
             bindings = <&kp>, <&kp>;
 
@@ -89,7 +94,7 @@
             display-name = "Positional Hold Tap Right";
 
             flavor = "balanced";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <HOLD_TAP_TERM_MS>;
 
             bindings = <&kp>, <&kp>;
 
@@ -109,7 +114,7 @@
             display-name = "Layer Return Tap Left";
 
             flavor = "balanced";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <HOLD_TAP_TERM_MS>;
 
             bindings = <&to>, <&kp>;
 
@@ -127,7 +132,7 @@
             display-name = "Scroll Hold Tap Left";
 
             flavor = "balanced";
-            tapping-term-ms = <200>;
+            tapping-term-ms = <HOLD_TAP_TERM_MS>;
 
             bindings = <&kp>, <&msc>;
 
