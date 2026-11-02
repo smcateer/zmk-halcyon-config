@@ -269,24 +269,34 @@
                 &kp BSPC          // 48
                 &none             // 49
 
-                // Halcyon module positions, left - positions 50-54
-                &none             // 50
+                // Encoder, left push action - position 50
+                &kp ENTER         // 50
+
+                // Blank, left - unused encoder key positions 51-54
                 &none             // 51
                 &none             // 52
                 &none             // 53
                 &none             // 54
 
-                // Halcyon module positions, right - positions 55-59
+                // Blank, left - unused encoder key positions 55-58
                 &none             // 55
                 &none             // 56
                 &none             // 57
                 &none             // 58
-                &none             // 59
+
+                // Encoder, right push action - position 59
+                &kp ESC           // 59
             >;
 
             sensor-bindings =
-                <&noop_sensor>,
-                <&noop_sensor>,
+
+                // Encoder, left twist actions (CCW, CW)
+                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
+
+                // Encoder, right twist actions (CCW, CW)
+                <&inc_dec_kp PG_DN PG_UP>,
+
+                // Blank, unused soldered encoders
                 <&noop_sensor>,
                 <&noop_sensor>;
         };
