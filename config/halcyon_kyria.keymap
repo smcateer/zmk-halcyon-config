@@ -126,7 +126,7 @@
         };
 
         /*
-         * Kyria encoder "none" action
+         * Ignore rotation for unused encoders / intentionally disabled layers
          */
         noop_sensor: noop_sensor {
             compatible = "zmk,behavior-sensor-rotate";
@@ -269,15 +269,13 @@
             >;
 
             sensor-bindings =
-
-                // Encoder, left twist actions (CW, CCW)
-                <&inc_dec_kp C_VOL_UP C_VOL_DN>,
-
-                // Encoder, right twist actions (CW, CCW)
-                <&inc_dec_kp PG_DN PG_UP>,
-
-                // Blank, unused soldered encoders
+                // Left Halcyon encoder
+                <&inc_dec_kp LG(LC(RIGHT)) LG(LC(LEFT))>,
+                // Right Halcyon encoder
+                <&scroll_encoder SCRL_DOWN SCRL_UP>,
+                // Unused left soldered encoder
                 <&noop_sensor>,
+                // Unused right soldered encoder
                 <&noop_sensor>;
         };
 
@@ -374,8 +372,15 @@
                 &none             // 59
             >;
 
-            // Encoder rotation inherits from lower active layers
-            // Include `sensor-bindings = ...` for to modify behaviour on this layer
+            sensor-bindings =
+                // Left Halcyon encoder
+                <&noop_sensor>,
+                // Right Halcyon encoder
+                <&inc_dec_kp LC(TAB) LS(LC(TAB))>,
+                // Unused left soldered encoder
+                <&noop_sensor>,
+                // Unused right soldered encoder
+                <&noop_sensor>;
 
         };
 
@@ -473,8 +478,15 @@
                 &none             // 59
             >;
 
-            // Encoder rotation inherits from lower active layers
-            // Include `sensor-bindings = ...` for to modify behaviour on this layer
+            sensor-bindings =
+                // Left Halcyon encoder
+                <&noop_sensor>,
+                // Right Halcyon encoder
+                <&noop_sensor>,
+                // Unused left soldered encoder
+                <&noop_sensor>,
+                // Unused right soldered encoder
+                <&noop_sensor>;
 
         };
 
@@ -571,8 +583,15 @@
                 &none             // 59
             >;
 
-            // Encoder rotation inherits from lower active layers
-            // Include `sensor-bindings = ...` for to modify behaviour on this layer
+            sensor-bindings =
+                // Left Halcyon encoder
+                <&noop_sensor>,
+                // Right Halcyon encoder
+                <&scroll_encoder SCRL_RIGHT SCRL_LEFT>,
+                // Unused left soldered encoder
+                <&noop_sensor>,
+                // Unused right soldered encoder
+                <&noop_sensor>;
 
         };
 
@@ -672,8 +691,15 @@
                 &none             // 59
             >;
 
-            // Encoder rotation inherits from lower active layers
-            // Include `sensor-bindings = ...` for to modify behaviour on this layer
+            sensor-bindings =
+                // Left Halcyon encoder
+                <&inc_dec_kp LA(ESCAPE) LA(LS(ESCAPE))>,
+                // Right Halcyon encoder
+                <&noop_sensor>,
+                // Unused left soldered encoder
+                <&noop_sensor>,
+                // Unused right soldered encoder
+                <&noop_sensor>;
 
         };
     };
