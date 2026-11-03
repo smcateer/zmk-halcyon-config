@@ -7,6 +7,8 @@
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
+// Scale encoder wheel pulses to produce a scroll step during a short rotation tap.
+#define ZMK_POINTING_DEFAULT_SCRL_VAL 50
 #include <dt-bindings/zmk/pointing.h>
 
 #define BASE 0
@@ -139,6 +141,7 @@
             compatible = "zmk,behavior-sensor-rotate-var";
             #sensor-binding-cells = <2>;
             bindings = <&msc>, <&msc>;
+            tap-ms = <40>;
         };
 
         // Shift-dependent punctuation on the Base layer.

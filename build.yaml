@@ -8,7 +8,7 @@ include:
   # Dongle — central device, with ZMK Studio enabled
   - board: halcyon_dongle//zmk
     shield: halcyon_kyria_dongle
-    cmake-args: -DCONFIG_ZMK_STUDIO=y
+    cmake-args: -DCONFIG_ZMK_STUDIO=y -DCONFIG_ZMK_POINTING=y
     snippet: studio-rpc-usb-uart
     artifact-name: kyria-dongle
 
