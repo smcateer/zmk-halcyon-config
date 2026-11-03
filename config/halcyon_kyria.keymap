@@ -62,6 +62,24 @@
             hold-trigger-on-release;
         };
 
+        // Immediate modifiers for Ctrl-click and Shift-click.
+        // Keep this separate from other left home-row modifiers to avoid
+        // changing their tap/hold behaviour during normal typing.
+        hml_click: home_row_mod_left_mouse_click {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            display-name = "Home Row Mod Left Mouse Click";
+
+            flavor = "balanced";
+            tapping-term-ms = <HOLD_TAP_TERM_MS>;
+            require-prior-idle-ms = <HOME_ROW_PRIOR_IDLE_MS>;
+
+            bindings = <&kp>, <&kp>;
+            hold-trigger-key-positions = <LEFT_HOLD_TRIGGERS>;
+            hold-trigger-on-release;
+            hold-while-undecided;
+        };
+
         hmr: home_row_mod_right {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -207,8 +225,8 @@
                 &kp TAB           // 12
                 &hml LGUI R       // 13
                 &hml LALT S       // 14
-                &hml LCTRL T      // 15
-                &hml LSHIFT H     // 16
+                &hml_click LCTRL T      // 15
+                &hml_click LSHIFT H     // 16
                 &hml LG(LS(LA(LCTRL))) K      // 17
 
                 // Row 1, right - positions 18-23
