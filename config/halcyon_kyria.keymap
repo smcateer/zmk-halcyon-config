@@ -165,6 +165,12 @@
      * "&c."
      */
     macros {
+        reset_to_base: reset_to_base {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp K_CANCEL &to BASE>;
+        };
+
         m_amp_c_dot: macro_amp_c_dot {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -229,7 +235,7 @@
 
                 // Upper thumbs, left - positions 30-31
                 &kp LGUI          // 30
-                &to BASE          // 31
+                &reset_to_base    // 31
                 // Upper thumbs, right - positions 32-33
                 &kp LC(BACKSPACE) // 32
                 &kp BACKSPACE     // 33
@@ -648,7 +654,7 @@
 
                 // Upper thumbs, left - positions 30-31
                 &none              // 30
-                &none              // 31
+                &trans             // 31
 
                 // Upper thumbs, right - positions 32-33
                 &none              // 32
