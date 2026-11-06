@@ -224,14 +224,16 @@ text.key.tl {
 </g>
 <g transform="translate(196, 84)" class="key keypos-15">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">T</text>
-<text x="0" y="24" class="key hold">∧</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-1.2em" style="font-size: 78%">hml_click</tspan><tspan x="0" dy="1.2em" style="font-size: 78%">LCTRL</tspan><tspan x="0" dy="1.2em" style="font-size: 78%">T</tspan>
+</text>
 <text x="-24" y="-24" class="key tl">15</text>
 </g>
 <g transform="translate(252, 84)" class="key keypos-16">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">H</text>
-<text x="0" y="24" class="key hold">⇧</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-1.2em" style="font-size: 78%">hml_click</tspan><tspan x="0" dy="1.2em" style="font-size: 78%">LSHIFT</tspan><tspan x="0" dy="1.2em" style="font-size: 78%">H</tspan>
+</text>
 <text x="-24" y="-24" class="key tl">16</text>
 </g>
 <g transform="translate(308, 84)" class="key keypos-17">

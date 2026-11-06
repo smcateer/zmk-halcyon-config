@@ -65,13 +65,11 @@
         "tl": "14"
       },
       {
-        "tap": "T",
-        "hold": "∧",
+        "tap": "hml_click LCTRL T",
         "tl": "15"
       },
       {
-        "tap": "H",
-        "hold": "⇧",
+        "tap": "hml_click LSHIFT H",
         "tl": "16"
       },
       {
