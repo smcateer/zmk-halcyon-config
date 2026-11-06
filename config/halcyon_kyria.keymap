@@ -731,3 +731,9 @@
         };
     };
 };
+
+// Release sticky modifiers immediately after the next key press, rather
+// than waiting for that key to be released. Applies to both &sk LSHIFT keys.
+&sk {
+    quick-release;
+};
