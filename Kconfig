@@ -1,0 +1,7 @@
+config ZMK_BEHAVIOR_KYRIA_BATTERY
+    bool "Type Kyria split battery status"
+    default y
+    depends on DT_HAS_ZMK_BEHAVIOR_KYRIA_BATTERY_ENABLED
+    depends on ZMK_SPLIT_ROLE_CENTRAL && ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
+    help
+      Types the live left/right coin-cell battery levels into the focused application.
