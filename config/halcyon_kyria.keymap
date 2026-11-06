@@ -6,6 +6,8 @@
 // row 3:                   {40} {41} {42} {43} {44}   {45} {46} {47} {48} {49}
 
 #include <behaviors.dtsi>
+
+// Custom dongle behaviour: type live battery levels of both halves.
 #include <dt-bindings/zmk/keys.h>
 // Scale encoder wheel pulses to produce a scroll step during a short rotation tap.
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 50
@@ -45,6 +47,12 @@
 
 / {
     behaviors {
+        kyria_battery: kyria_battery {
+            compatible = "zmk,behavior-kyria-battery";
+            #binding-cells = <0>;
+            display-name = "Kyria Batteries";
+        };
+
         // Home-row mods.
         hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
@@ -423,7 +431,7 @@
             bindings = <
                 // Row 0, left - positions 0-5
                 &tog FUNC                   // 0
-                &none             // 01
+                &kyria_battery    // 01
                 &none                       // 2
                 &kp LC(LS(TAB))             // 3
                 &kp LC(TAB)                 // 4
