@@ -653,12 +653,12 @@
                 &kp LS(LA(LCTRL))            // 29
 
                 // Upper thumbs, left - positions 30-31
-                &none              // 30
+                &trans             // 30
                 &trans             // 31
 
                 // Upper thumbs, right - positions 32-33
-                &none              // 32
-                &none              // 33
+                &trans             // 32
+                &trans             // 33
 
                 // Row 2, right - positions 34-39
                 &kp LS(LA(LCTRL))            // 34
