@@ -136,7 +136,7 @@
         "tl": "30"
       },
       {
-        "tap": "To BASE",
+        "tap": "reset_to_base",
         "tl": "31"
       },
       {
@@ -1056,19 +1056,23 @@
         "tl": "29"
       },
       {
-        "tap": "–",
+        "tap": "▽",
+        "type": "trans",
         "tl": "30"
       },
       {
-        "tap": "–",
+        "tap": "▽",
+        "type": "trans",
         "tl": "31"
       },
       {
-        "tap": "–",
+        "tap": "▽",
+        "type": "trans",
         "tl": "32"
       },
       {
-        "tap": "–",
+        "tap": "▽",
+        "type": "trans",
         "tl": "33"
       },
       {

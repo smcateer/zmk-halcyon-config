@@ -317,9 +317,7 @@ text.key.tl {
 </g>
 <g transform="translate(420, 140)" class="key keypos-31">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">
-<tspan x="0" dy="-0.6em">To</tspan><tspan x="0" dy="1.2em">BASE</tspan>
-</text>
+<text x="0" y="0" class="key tap"><tspan style="font-size: 64%">reset_to_b…</tspan></text>
 <text x="-24" y="-24" class="key tl">31</text>
 </g>
 <g transform="translate(476, 140)" class="key keypos-32">
@@ -1445,25 +1443,25 @@ text.key.tl {
 <text x="0" y="0" class="key tap">♣</text>
 <text x="-24" y="-24" class="key tl">29</text>
 </g>
-<g transform="translate(364, 140)" class="key keypos-30">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">–</text>
-<text x="-24" y="-24" class="key tl">30</text>
+<g transform="translate(364, 140)" class="key trans keypos-30">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
+<text x="0" y="0" class="key trans tap">▽</text>
+<text x="-24" y="-24" class="key trans tl">30</text>
 </g>
-<g transform="translate(420, 140)" class="key keypos-31">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">–</text>
-<text x="-24" y="-24" class="key tl">31</text>
+<g transform="translate(420, 140)" class="key trans keypos-31">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
+<text x="0" y="0" class="key trans tap">▽</text>
+<text x="-24" y="-24" class="key trans tl">31</text>
 </g>
-<g transform="translate(476, 140)" class="key keypos-32">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">–</text>
-<text x="-24" y="-24" class="key tl">32</text>
+<g transform="translate(476, 140)" class="key trans keypos-32">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
+<text x="0" y="0" class="key trans tap">▽</text>
+<text x="-24" y="-24" class="key trans tl">32</text>
 </g>
-<g transform="translate(532, 140)" class="key keypos-33">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">–</text>
-<text x="-24" y="-24" class="key tl">33</text>
+<g transform="translate(532, 140)" class="key trans keypos-33">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
+<text x="0" y="0" class="key trans tap">▽</text>
+<text x="-24" y="-24" class="key trans tl">33</text>
 </g>
 <g transform="translate(588, 140)" class="key keypos-34">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
