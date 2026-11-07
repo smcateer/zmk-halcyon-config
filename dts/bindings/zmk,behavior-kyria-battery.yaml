@@ -1,0 +1,5 @@
+description: Types both Kyria split battery levels as ASCII bars
+
+compatible: "zmk,behavior-kyria-battery"
+
+include: zero_param.yaml
