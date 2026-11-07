@@ -21,8 +21,8 @@
 
 // Shared timing parameters (milliseconds).
 // Prior-idle is used only by the home-row modifiers.
-#define HOLD_TAP_TERM_MS 200
-#define HOME_ROW_PRIOR_IDLE_MS 100
+#define HOLD_TAP_TERM_MS 280 // 200
+#define HOME_ROW_PRIOR_IDLE_MS 150 // 100
 
 // Opposite-hand key positions that trigger positional hold-taps.
 // "Left" and "Right" refer to the hand with the hold-tap key.
