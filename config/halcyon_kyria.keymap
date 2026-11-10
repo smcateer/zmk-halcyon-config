@@ -68,6 +68,17 @@
             bindings = <&mo>, <&kp>;
         };
 
+        // B holds Alt and ENC_MIDDLE; unlike J it selects a window on release.
+        // The hold behavior has no parameters; the keymap passes dummy 0.
+        enc_alt_lt: encoder_alt_layer_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            display-name = "Encoder Alt Layer Tap";
+            flavor = "tap-preferred";
+            tapping-term-ms = <ENCODER_HOLD_TERM_MS>;
+            bindings = <&enc_middle_alt>, <&kp>;
+        };
+
         // Home-row mods.
         hml: home_row_mod_left {
             compatible = "zmk,behavior-hold-tap";
@@ -206,6 +217,18 @@
      * "&c."
      */
     macros {
+        // Select a window by releasing Alt when the held B key is released.
+        enc_middle_alt: enc_middle_alt {
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            wait-ms = <0>;
+            tap-ms = <0>;
+            bindings =
+                <&macro_press &mo ENC_MIDDLE &kp LALT>,
+                <&macro_pause_for_release>,
+                <&macro_release &kp LALT &mo ENC_MIDDLE>;
+        };
+
         reset_to_base: reset_to_base {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
@@ -240,7 +263,7 @@
                 &kp W             // 2
                 &kp F             // 3
                 &enc_lt ENC_RING P  // 4
-                &enc_lt ENC_MIDDLE B // 5
+                &enc_alt_lt 0 B     // 5
 
                 // Row 0, right - positions 6-11
                 &enc_lt ENC_MIDDLE J // 6
@@ -852,7 +875,7 @@
 
             sensor-bindings =
                 // Left Halcyon encoder
-                <&inc_dec_kp LA(ESCAPE) LA(LS(ESCAPE))>,
+                <&inc_dec_kp TAB LS(TAB)>,
                 // Right Halcyon encoder
                 <&inc_dec_kp PG_DN PG_UP>,
                 // Unused left soldered encoder

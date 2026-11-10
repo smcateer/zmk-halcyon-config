@@ -63,10 +63,11 @@ def binding_label(binding):
         return {"tap": "–"}
     if behavior == "&trans":
         return {"tap": "▽", "type": "trans"}
-    if behavior in ("&hml", "&hmr", "&phtl", "&phtr", "&phtl_scroll", "&enc_lt"):
+    if behavior in ("&hml", "&hmr", "&phtl", "&phtr", "&phtl_scroll", "&enc_lt", "&enc_alt_lt"):
         if len(args) != 2:
             raise ValueError("Expected 2 args for hold-tap: " + binding)
-        hold = {"ENC_MIDDLE": "Enc Mid", "ENC_RING": "Enc Ring"}.get(args[0], code_label(args[0]))
+        hold = ("Enc Mid + ⎇" if behavior == "&enc_alt_lt" else
+                {"ENC_MIDDLE": "Enc Mid", "ENC_RING": "Enc Ring"}.get(args[0], code_label(args[0])))
         return {"tap": code_label(args[1]), "hold": hold}
     if behavior == "&kp":
         return {"tap": code_label(" ".join(args))}
