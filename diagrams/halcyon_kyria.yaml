@@ -25,7 +25,7 @@
       },
       {
         "tap": "B",
-        "hold": "Enc Mid",
+        "hold": "Enc Mid + ⎇",
         "tl": "05"
       },
       {
@@ -1410,8 +1410,8 @@
         "tap": "▽",
         "type": "trans",
         "tl": "50",
-        "shifted": "↻ ⎇Esc",
-        "hold": "↺ ⎇⇧Esc"
+        "shifted": "↻ Tab",
+        "hold": "↺ ⇧Tab"
       },
       {
         "tap": "▽",
