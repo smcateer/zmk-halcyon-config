@@ -30,12 +30,12 @@
       },
       {
         "tap": "J",
-        "hold": "Enc Mid",
+        "hold": "Enc Ring",
         "tl": "06"
       },
       {
         "tap": "L",
-        "hold": "Enc Ring",
+        "hold": "Enc Mid",
         "tl": "07"
       },
       {
@@ -726,6 +726,7 @@
       },
       {
         "tap": "HOME",
+        "hold": "Enc Pg",
         "tl": "07"
       },
       {
