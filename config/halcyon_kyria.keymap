@@ -12,6 +12,10 @@
 // Scale encoder wheel pulses to produce a scroll step during a short rotation tap.
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 50
 #include <dt-bindings/zmk/pointing.h>
+// Scale only ENC_MIDDLE's right encoder, without changing BASE or horizontal scrolling.
+#define FAST_SCROLL_MULTIPLIER 5
+#define FAST_SCRL_DOWN MOVE_Y(-(ZMK_POINTING_DEFAULT_SCRL_VAL * FAST_SCROLL_MULTIPLIER))
+#define FAST_SCRL_UP   MOVE_Y( (ZMK_POINTING_DEFAULT_SCRL_VAL * FAST_SCROLL_MULTIPLIER))
 
 #define BASE 0
 #define NUM  1
@@ -877,7 +881,7 @@
                 // Left Halcyon encoder
                 <&inc_dec_kp TAB LS(TAB)>,
                 // Right Halcyon encoder
-                <&inc_dec_kp PG_DN PG_UP>,
+                <&scroll_encoder FAST_SCRL_DOWN FAST_SCRL_UP>,
                 // Unused left soldered encoder
                 <&noop_sensor>,
                 // Unused right soldered encoder

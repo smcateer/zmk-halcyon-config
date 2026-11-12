@@ -37,6 +37,7 @@ KEY_NAMES = {
     "PG_DN": "PgDn", "PG_UP": "PgUp", "PRINTSCREEN": "PrtSc",
     "SCRL_DOWN": "Wheel↓", "SCRL_UP": "Wheel↑",
     "SCRL_LEFT": "Wheel←", "SCRL_RIGHT": "Wheel→",
+    "FAST_SCRL_DOWN": "Wheel↓ ×5", "FAST_SCRL_UP": "Wheel↑ ×5",
 }
 
 
