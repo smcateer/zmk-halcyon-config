@@ -14,16 +14,22 @@
 #include <dt-bindings/zmk/pointing.h>
 // Scale only ENC_MIDDLE's right encoder, without changing BASE or horizontal scrolling.
 #define FAST_SCROLL_MULTIPLIER 5
-#define FAST_SCRL_DOWN MOVE_Y(-(ZMK_POINTING_DEFAULT_SCRL_VAL * FAST_SCROLL_MULTIPLIER))
-#define FAST_SCRL_UP   MOVE_Y( (ZMK_POINTING_DEFAULT_SCRL_VAL * FAST_SCROLL_MULTIPLIER))
+// The controller receives scroll values through its devicetree node.
 
 #define BASE 0
 #define NUM  1
 #define FUNC 2
 #define NAV  3
 #define SYM  4
-#define ENC_MIDDLE 5
-#define ENC_RING   6
+// Encoder modes are independent of ordinary keyboard layers.
+#define ENC_MODE_MIDDLE       1
+#define ENC_MODE_RING         2
+#define ENC_MODE_NAV_VERTICAL 3
+
+#define ENC_LEFT_CW   0
+#define ENC_LEFT_CCW  1
+#define ENC_RIGHT_CW  2
+#define ENC_RIGHT_CCW 3
 
 // Shared timing parameters (milliseconds).
 // Prior-idle is used only by the home-row modifiers.
@@ -55,13 +61,39 @@
 
 / {
     behaviors {
+        // These behaviors are implemented on the central dongle.
+        kyria_encoder_mode: kyria_encoder_mode {
+            compatible = "zmk,behavior-kyria-encoder-mode";
+            #binding-cells = <1>;
+            display-name = "Kyria Encoder Mode";
+        };
+
+        kyria_encoder_action: kyria_encoder_action {
+            compatible = "zmk,behavior-kyria-encoder-action";
+            #binding-cells = <1>;
+            display-name = "Kyria Encoder Action";
+            key-press = <&kp>;
+            mouse-scroll = <&msc>;
+            nav-layer = <NAV>;
+            base-scroll = <ZMK_POINTING_DEFAULT_SCRL_VAL>;
+            fast-multiplier = <FAST_SCROLL_MULTIPLIER>;
+        };
+
+        // A single dispatcher receives both encoders on every keyboard layer.
+        kyria_encoder_rot: kyria_encoder_rot {
+            compatible = "zmk,behavior-sensor-rotate-var";
+            #sensor-binding-cells = <2>;
+            bindings = <&kyria_encoder_action>, <&kyria_encoder_action>;
+            tap-ms = <40>;
+        };
+
         kyria_battery: kyria_battery {
             compatible = "zmk,behavior-kyria-battery";
             #binding-cells = <0>;
             display-name = "Kyria Batteries";
         };
 
-        // B/J and P/L: tap normally, or hold to change BOTH encoder modes.
+        // B/J and P/L: tap normally, or hold an independent encoder mode.
         // Tap-preferred avoids activating the encoder layers during rapid typing.
         enc_lt: encoder_layer_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -69,10 +101,10 @@
             display-name = "Encoder Layer Tap";
             flavor = "tap-preferred";
             tapping-term-ms = <ENCODER_HOLD_TERM_MS>;
-            bindings = <&mo>, <&kp>;
+            bindings = <&kyria_encoder_mode>, <&kp>;
         };
 
-        // B holds Alt and ENC_MIDDLE; unlike J it selects a window on release.
+        // B holds Alt and the middle encoder mode; release selects the window.
         // The hold behavior has no parameters; the keymap passes dummy 0.
         enc_alt_lt: encoder_alt_layer_tap {
             compatible = "zmk,behavior-hold-tap";
@@ -192,14 +224,6 @@
             bindings = <&none>, <&none>;
         };
 
-        // Encoder-driven mouse scrolling.
-        scroll_encoder: scroll_encoder {
-            compatible = "zmk,behavior-sensor-rotate-var";
-            #sensor-binding-cells = <2>;
-            bindings = <&msc>, <&msc>;
-            tap-ms = <40>;
-        };
-
         // Shift-dependent punctuation on the Base layer.
         dot_qmark: dot_question {
             compatible = "zmk,behavior-mod-morph";
@@ -228,9 +252,9 @@
             wait-ms = <0>;
             tap-ms = <0>;
             bindings =
-                <&macro_press &mo ENC_MIDDLE &kp LALT>,
+                <&macro_press &kyria_encoder_mode ENC_MODE_MIDDLE &kp LALT>,
                 <&macro_pause_for_release>,
-                <&macro_release &kp LALT &mo ENC_MIDDLE>;
+                <&macro_release &kp LALT &kyria_encoder_mode ENC_MODE_MIDDLE>;
         };
 
         reset_to_base: reset_to_base {
@@ -266,12 +290,12 @@
                 &kp V             // 1
                 &kp W             // 2
                 &kp F             // 3
-                &enc_lt ENC_RING P  // 4
+                &enc_lt ENC_MODE_RING P  // 4
                 &enc_alt_lt 0 B     // 5
 
                 // Row 0, right - positions 6-11
-                &enc_lt ENC_MIDDLE J // 6
-                &enc_lt ENC_RING L  // 7
+                &enc_lt ENC_MODE_MIDDLE J // 6
+                &enc_lt ENC_MODE_RING L  // 7
                 &kp U             // 8
                 &kp Y             // 9
                 &kp SQT           // 10
@@ -346,10 +370,10 @@
             >;
 
             sensor-bindings =
-                // Left Halcyon encoder
-                <&inc_dec_kp LG(LC(RIGHT)) LG(LC(LEFT))>,
-                // Right Halcyon encoder
-                <&scroll_encoder SCRL_DOWN SCRL_UP>,
+                // Left Halcyon encoder: dynamic dispatch
+                <&kyria_encoder_rot ENC_LEFT_CW ENC_LEFT_CCW>,
+                // Right Halcyon encoder: dynamic dispatch
+                <&kyria_encoder_rot ENC_RIGHT_CW ENC_RIGHT_CCW>,
                 // Unused left soldered encoder
                 <&noop_sensor>,
                 // Unused right soldered encoder
@@ -450,10 +474,10 @@
             >;
 
             sensor-bindings =
-                // Left Halcyon encoder
-                <&noop_sensor>,
-                // Right Halcyon encoder
-                <&noop_sensor>,
+                // Left Halcyon encoder: dynamic dispatch
+                <&kyria_encoder_rot ENC_LEFT_CW ENC_LEFT_CCW>,
+                // Right Halcyon encoder: dynamic dispatch
+                <&kyria_encoder_rot ENC_RIGHT_CW ENC_RIGHT_CCW>,
                 // Unused left soldered encoder
                 <&noop_sensor>,
                 // Unused right soldered encoder
@@ -556,10 +580,10 @@
             >;
 
             sensor-bindings =
-                // Left Halcyon encoder
-                <&noop_sensor>,
-                // Right Halcyon encoder
-                <&noop_sensor>,
+                // Left Halcyon encoder: dynamic dispatch
+                <&kyria_encoder_rot ENC_LEFT_CW ENC_LEFT_CCW>,
+                // Right Halcyon encoder: dynamic dispatch
+                <&kyria_encoder_rot ENC_RIGHT_CW ENC_RIGHT_CCW>,
                 // Unused left soldered encoder
                 <&noop_sensor>,
                 // Unused right soldered encoder
@@ -584,7 +608,7 @@
                 &kp LC(R)              // 5
 
                 // Row 0, right - positions 6-11
-                &none             // 06
+                &kyria_encoder_mode ENC_MODE_NAV_VERTICAL // 06
                 &kp HOME               // 7
                 &kp PG_DN              // 8
                 &kp PG_UP              // 9
@@ -661,10 +685,10 @@
             >;
 
             sensor-bindings =
-                // Left Halcyon encoder
-                <&noop_sensor>,
-                // Right Halcyon encoder: clockwise = Right, anticlockwise = Left
-                <&inc_dec_kp RIGHT LEFT>,
+                // Left Halcyon encoder: dynamic dispatch
+                <&kyria_encoder_rot ENC_LEFT_CW ENC_LEFT_CCW>,
+                // Right Halcyon encoder: dynamic dispatch
+                <&kyria_encoder_rot ENC_RIGHT_CW ENC_RIGHT_CCW>,
                 // Unused left soldered encoder
                 <&noop_sensor>,
                 // Unused right soldered encoder
@@ -769,233 +793,17 @@
             >;
 
             sensor-bindings =
-                // Left Halcyon encoder
-                <&noop_sensor>,
-                // Right Halcyon encoder
-                <&noop_sensor>,
+                // Left Halcyon encoder: dynamic dispatch
+                <&kyria_encoder_rot ENC_LEFT_CW ENC_LEFT_CCW>,
+                // Right Halcyon encoder: dynamic dispatch
+                <&kyria_encoder_rot ENC_RIGHT_CW ENC_RIGHT_CCW>,
                 // Unused left soldered encoder
                 <&noop_sensor>,
                 // Unused right soldered encoder
                 <&noop_sensor>;
 
         };
-        /*
-         * ENCODER MIDDLE ENCODER MODE
-         * Activated by holding the matching finger key on either half.
-         * Regular keys remain transparent to BASE / other active layers.
-         */
-        encoder_middle_layer {
-            display-name = "Encoder Middle";
 
-            bindings = <
-                // Row 0, left - positions 0-5
-                &trans       // 00
-                &trans       // 01
-                &trans       // 02
-                &trans       // 03
-                &trans       // 04
-                &trans       // 05
-
-                // Row 0, right - positions 6-11
-                &trans       // 06
-                &trans       // 07
-                &trans       // 08
-                &trans       // 09
-                &trans       // 10
-                &trans       // 11
-
-                // Row 1, left - positions 12-17
-                &trans       // 12
-                &trans       // 13
-                &trans       // 14
-                &trans       // 15
-                &trans       // 16
-                &trans       // 17
-
-                // Row 1, right - positions 18-23
-                &trans       // 18
-                &trans       // 19
-                &trans       // 20
-                &trans       // 21
-                &trans       // 22
-                &trans       // 23
-
-                // Row 2, left - positions 24-29
-                &trans       // 24
-                &trans       // 25
-                &trans       // 26
-                &trans       // 27
-                &trans       // 28
-                &trans       // 29
-
-                // Upper thumbs, left - positions 30-31
-                &trans       // 30
-                &trans       // 31
-
-                // Upper thumbs, right - positions 32-33
-                &trans       // 32
-                &trans       // 33
-
-                // Row 2, right - positions 34-39
-                &trans       // 34
-                &trans       // 35
-                &trans       // 36
-                &trans       // 37
-                &trans       // 38
-                &trans       // 39
-
-                // Thumbs, left - positions 40-44
-                &trans       // 40
-                &trans       // 41
-                &trans       // 42
-                &trans       // 43
-                &trans       // 44
-
-                // Thumbs, right - positions 45-49
-                &trans       // 45
-                &trans       // 46
-                &trans       // 47
-                &trans       // 48
-                &trans       // 49
-
-                // Encoder, left push action - position 50
-                &trans       // 50
-
-                // Blank, left - unused encoder key positions 51-54
-                &none        // 51
-                &none        // 52
-                &none        // 53
-                &none        // 54
-
-                // Blank, right - unused encoder key positions 55-58
-                &none        // 55
-                &none        // 56
-                &none        // 57
-                &none        // 58
-
-                // Encoder, right push action - position 59
-                &trans       // 59
-            >;
-
-            sensor-bindings =
-                // Left Halcyon encoder
-                <&inc_dec_kp TAB LS(TAB)>,
-                // Right Halcyon encoder
-                <&scroll_encoder FAST_SCRL_DOWN FAST_SCRL_UP>,
-                // Unused left soldered encoder
-                <&noop_sensor>,
-                // Unused right soldered encoder
-                <&noop_sensor>;
-        };
-
-        /*
-         * ENCODER RING ENCODER MODE
-         * Activated by holding the matching finger key on either half.
-         * Regular keys remain transparent to BASE / other active layers.
-         */
-        encoder_ring_layer {
-            display-name = "Encoder Ring";
-
-            bindings = <
-                // Row 0, left - positions 0-5
-                &trans       // 00
-                &trans       // 01
-                &trans       // 02
-                &trans       // 03
-                &trans       // 04
-                &trans       // 05
-
-                // Row 0, right - positions 6-11
-                &trans       // 06
-                &trans       // 07
-                &trans       // 08
-                &trans       // 09
-                &trans       // 10
-                &trans       // 11
-
-                // Row 1, left - positions 12-17
-                &trans       // 12
-                &trans       // 13
-                &trans       // 14
-                &trans       // 15
-                &trans       // 16
-                &trans       // 17
-
-                // Row 1, right - positions 18-23
-                &trans       // 18
-                &trans       // 19
-                &trans       // 20
-                &trans       // 21
-                &trans       // 22
-                &trans       // 23
-
-                // Row 2, left - positions 24-29
-                &trans       // 24
-                &trans       // 25
-                &trans       // 26
-                &trans       // 27
-                &trans       // 28
-                &trans       // 29
-
-                // Upper thumbs, left - positions 30-31
-                &trans       // 30
-                &trans       // 31
-
-                // Upper thumbs, right - positions 32-33
-                &trans       // 32
-                &trans       // 33
-
-                // Row 2, right - positions 34-39
-                &trans       // 34
-                &trans       // 35
-                &trans       // 36
-                &trans       // 37
-                &trans       // 38
-                &trans       // 39
-
-                // Thumbs, left - positions 40-44
-                &trans       // 40
-                &trans       // 41
-                &trans       // 42
-                &trans       // 43
-                &trans       // 44
-
-                // Thumbs, right - positions 45-49
-                &trans       // 45
-                &trans       // 46
-                &trans       // 47
-                &trans       // 48
-                &trans       // 49
-
-                // Encoder, left push action - position 50
-                &trans       // 50
-
-                // Blank, left - unused encoder key positions 51-54
-                &none        // 51
-                &none        // 52
-                &none        // 53
-                &none        // 54
-
-                // Blank, right - unused encoder key positions 55-58
-                &none        // 55
-                &none        // 56
-                &none        // 57
-                &none        // 58
-
-                // Encoder, right push action - position 59
-                &trans       // 59
-            >;
-
-            sensor-bindings =
-                // Left Halcyon encoder
-                <&inc_dec_kp LC(TAB) LS(LC(TAB))>,
-                // Right Halcyon encoder
-                <&scroll_encoder SCRL_RIGHT SCRL_LEFT>,
-                // Unused left soldered encoder
-                <&noop_sensor>,
-                // Unused right soldered encoder
-                <&noop_sensor>;
-        };
     };
 };
 

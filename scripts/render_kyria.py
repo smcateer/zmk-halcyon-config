@@ -11,8 +11,7 @@ import json
 from pathlib import Path
 import re
 
-LAYERS = ("base_layer", "num_layer", "function_layer", "nav_layer", "sym_layer",
-          "encoder_middle_layer", "encoder_ring_layer")
+LAYERS = ("base_layer", "num_layer", "function_layer", "nav_layer", "sym_layer")
 VISIBLE_POSITIONS = list(range(51)) + [59]
 UNUSED_POSITIONS = set(range(51, 59))
 # Symbolic modifier labels are for the SVG only; the ZMK keymap is unchanged.
@@ -68,8 +67,10 @@ def binding_label(binding):
         if len(args) != 2:
             raise ValueError("Expected 2 args for hold-tap: " + binding)
         hold = ("Enc Mid + ⎇" if behavior == "&enc_alt_lt" else
-                {"ENC_MIDDLE": "Enc Mid", "ENC_RING": "Enc Ring"}.get(args[0], code_label(args[0])))
+                {"ENC_MODE_MIDDLE": "Enc Mid", "ENC_MODE_RING": "Enc Ring"}.get(args[0], code_label(args[0])))
         return {"tap": code_label(args[1]), "hold": hold}
+    if behavior == "&kyria_encoder_mode":
+        return {"tap": "–", "hold": "Enc ↑↓"}  # NAV key 06 (held only)
     if behavior == "&kp":
         return {"tap": code_label(" ".join(args))}
     if behavior == "&sk":
@@ -118,12 +119,23 @@ def read_layer(source, name):
     return positions, sensors
 
 
-def annotate_encoder(key, name, sensor):
+def annotate_encoder(key, name, sensor, layer):
     if key["tap"] == "–":
         key["tap"] = "Enc " + name
     if not sensor or sensor.startswith("&noop_sensor"):
         return
     parts = sensor.split()
+    if len(parts) == 3 and parts[0] == "&kyria_encoder_rot":
+        # Only regular-layer defaults are shown; held modes are documented
+        # separately because their effect is independent of these layers.
+        pair = {
+            ("base_layer", "L"): ("⌘∧→", "⌘∧←"),
+            ("base_layer", "R"): ("Wheel↓", "Wheel↑"),
+            ("nav_layer", "R"): ("→", "←"),
+        }.get((layer, name))
+        if pair:
+            key["shifted"], key["hold"] = "↻ " + pair[0], "↺ " + pair[1]
+        return
     if len(parts) != 3 or parts[0] not in ("&inc_dec_kp", "&scroll_encoder"):
         raise ValueError("Unsupported encoder binding: " + sensor)
     key["shifted"] = "↻ " + code_label(parts[1])
@@ -143,8 +155,7 @@ def run(root, output_dir):
     assert len(geometry) == len(VISIBLE_POSITIONS) == 52
 
     labels = {"base_layer": "Base", "num_layer": "Num / Mouse", "function_layer": "Function",
-              "nav_layer": "Navigation", "sym_layer": "Symbols",
-              "encoder_middle_layer": "Encoder Middle", "encoder_ring_layer": "Encoder Ring"}
+              "nav_layer": "Navigation", "sym_layer": "Symbols"}
     layers = {}
     for name in LAYERS:
         positions, sensors = read_layer(source, name)
@@ -153,7 +164,7 @@ def run(root, output_dir):
             key = binding_label(positions[pos])
             key["tl"] = f"{pos:02}"
             if pos in (50, 59):
-                annotate_encoder(key, "L" if pos == 50 else "R", sensors[0 if pos == 50 else 1] if sensors else "")
+                annotate_encoder(key, "L" if pos == 50 else "R", sensors[0 if pos == 50 else 1] if sensors else "", name)
             keys.append(key)
         layers[labels[name]] = keys
 

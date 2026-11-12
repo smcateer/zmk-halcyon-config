@@ -32,7 +32,7 @@ jobs:
         run: python -m pip install keymap-drawer==0.23.0
       - name: Convert Kyria keymap to keymap-drawer data
         run: python scripts/render_kyria.py
-      - name: Draw all seven layers using keymap-drawer
+      - name: Draw all five layers using keymap-drawer
         run: keymap -c config/keymap-drawer-style.yaml draw -j diagrams/halcyon_kyria-layout.json diagrams/halcyon_kyria.yaml > diagrams/halcyon_kyria.svg
       - uses: actions/upload-artifact@v4
         with:

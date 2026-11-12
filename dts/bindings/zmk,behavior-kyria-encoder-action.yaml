@@ -1,0 +1,24 @@
+description: Kyria dynamic encoder rotation dispatcher
+compatible: "zmk,behavior-kyria-encoder-action"
+properties:
+  "#binding-cells":
+    type: int
+    const: 1
+    required: true
+  key-press:
+    type: phandle
+    required: true
+  mouse-scroll:
+    type: phandle
+    required: true
+  nav-layer:
+    type: int
+    required: true
+  base-scroll:
+    type: int
+    required: true
+  fast-multiplier:
+    type: int
+    required: true
+binding-cells:
+  - rotation
