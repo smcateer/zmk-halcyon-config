@@ -302,20 +302,20 @@
                 &hml LS(LA(LCTRL)) Q        // 29
 
                 // Upper thumbs, left - positions 30-31
-                &kp LGUI          // 30
+                &kp DEL           // 30
                 &reset_to_base    // 31
                 // Upper thumbs, right - positions 32-33
-                &kp LC(BACKSPACE) // 32
-                &kp BACKSPACE     // 33
+                &kp COLON         // 32
+                &kp AT            // 33
                 // Row 2, right - positions 34-39
                 &hmr LS(LA(LCTRL)) Z        // 34
                 &kp M             // 35
                 &comma_excl       // 36
                 &dot_qmark        // 37
                 &sk LSHIFT        // 38
-                &none             // 39
+                &kp LGUI          // 39
                 // Thumbs, left - positions 40-44
-                &kp DEL           // 40
+                &none             // 40
                 &sl FUNC          // 41
                 &sl NUM           // 42
                 &kp E             // 43
@@ -324,9 +324,9 @@
                 // Thumbs, right - positions 45-49
                 &sl SYM           // 45
                 &kp SPACE         // 46
-                &key_repeat       // 47
-                &kp AT            // 48
-                &kp COLON         // 49
+                &kp BACKSPACE     // 47
+                &none             // 48
+                &none             // 49
                 // Encoder, left push action - position 50
                 &kp LG(TAB)       // 50
                 // Blank, left - unused encoder key positions 51-54
