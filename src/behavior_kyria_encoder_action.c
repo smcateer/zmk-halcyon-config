@@ -24,6 +24,7 @@
 #define MODE_MIDDLE 1
 #define MODE_RING 2
 #define MODE_NAV_VERTICAL 3
+#define MODE_NAV_PAGE 4
 
 struct encoder_config {
     const char *key_press_dev;
@@ -61,6 +62,8 @@ static struct output select_output(const struct encoder_config *cfg, uint32_t ro
     const int16_t fast = step * cfg->fast_multiplier;
 
     switch (kyria_encoder_active_mode()) {
+    case MODE_NAV_PAGE:
+        return right ? key(clockwise ? PG_DN : PG_UP) : (struct output){0};
     case MODE_NAV_VERTICAL:
         return right ? key(clockwise ? DOWN : UP) : (struct output){0};
     case MODE_RING:

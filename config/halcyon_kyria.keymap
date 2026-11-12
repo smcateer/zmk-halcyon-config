@@ -12,7 +12,7 @@
 // Scale encoder wheel pulses to produce a scroll step during a short rotation tap.
 #define ZMK_POINTING_DEFAULT_SCRL_VAL 50
 #include <dt-bindings/zmk/pointing.h>
-// Scale only ENC_MIDDLE's right encoder, without changing BASE or horizontal scrolling.
+// Scale the middle encoder mode's right wheel without changing normal scrolling.
 #define FAST_SCROLL_MULTIPLIER 5
 // The controller receives scroll values through its devicetree node.
 
@@ -25,6 +25,7 @@
 #define ENC_MODE_MIDDLE       1
 #define ENC_MODE_RING         2
 #define ENC_MODE_NAV_VERTICAL 3
+#define ENC_MODE_NAV_PAGE     4
 
 #define ENC_LEFT_CW   0
 #define ENC_LEFT_CCW  1
@@ -94,7 +95,7 @@
         };
 
         // B/J and P/L: tap normally, or hold an independent encoder mode.
-        // Tap-preferred avoids activating the encoder layers during rapid typing.
+        // Tap-preferred avoids activating encoder modes during rapid typing.
         enc_lt: encoder_layer_tap {
             compatible = "zmk,behavior-hold-tap";
             #binding-cells = <2>;
@@ -294,8 +295,8 @@
                 &enc_alt_lt 0 B     // 5
 
                 // Row 0, right - positions 6-11
-                &enc_lt ENC_MODE_MIDDLE J // 6
-                &enc_lt ENC_MODE_RING L  // 7
+                &enc_lt ENC_MODE_RING J // 6
+                &enc_lt ENC_MODE_MIDDLE L // 7
                 &kp U             // 8
                 &kp Y             // 9
                 &kp SQT           // 10
@@ -609,7 +610,7 @@
 
                 // Row 0, right - positions 6-11
                 &kyria_encoder_mode ENC_MODE_NAV_VERTICAL // 06
-                &kp HOME               // 7
+                &enc_lt ENC_MODE_NAV_PAGE HOME // 7
                 &kp PG_DN              // 8
                 &kp PG_UP              // 9
                 &kp END                // 10

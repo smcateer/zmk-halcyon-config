@@ -15,12 +15,16 @@
 #define MODE_MIDDLE 1
 #define MODE_RING 2
 #define MODE_NAV_VERTICAL 3
-#define MODE_MAX MODE_NAV_VERTICAL
+#define MODE_NAV_PAGE 4
+#define MODE_MAX MODE_NAV_PAGE
 
 /* Counts allow B/J or P/L to be held simultaneously without premature reset. */
 static uint8_t held_modes[MODE_MAX + 1];
 
 int kyria_encoder_active_mode(void) {
+    if (held_modes[MODE_NAV_PAGE]) {
+        return MODE_NAV_PAGE;
+    }
     if (held_modes[MODE_NAV_VERTICAL]) {
         return MODE_NAV_VERTICAL;
     }

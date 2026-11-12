@@ -67,7 +67,7 @@ def binding_label(binding):
         if len(args) != 2:
             raise ValueError("Expected 2 args for hold-tap: " + binding)
         hold = ("Enc Mid + ⎇" if behavior == "&enc_alt_lt" else
-                {"ENC_MODE_MIDDLE": "Enc Mid", "ENC_MODE_RING": "Enc Ring"}.get(args[0], code_label(args[0])))
+                {"ENC_MODE_MIDDLE": "Enc Mid", "ENC_MODE_RING": "Enc Ring", "ENC_MODE_NAV_PAGE": "Enc Pg"}.get(args[0], code_label(args[0])))
         return {"tap": code_label(args[1]), "hold": hold}
     if behavior == "&kyria_encoder_mode":
         return {"tap": "–", "hold": "Enc ↑↓"}  # NAV key 06 (held only)
