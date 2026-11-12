@@ -1,6 +1,8 @@
 description: Kyria encoder mode selector, independent of keyboard layers
 compatible: "zmk,behavior-kyria-encoder-mode"
 properties:
+  display-name:
+    type: string
   "#binding-cells":
     type: int
     const: 1

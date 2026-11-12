@@ -1,6 +1,8 @@
 description: Kyria dynamic encoder rotation dispatcher
 compatible: "zmk,behavior-kyria-encoder-action"
 properties:
+  display-name:
+    type: string
   "#binding-cells":
     type: int
     const: 1
