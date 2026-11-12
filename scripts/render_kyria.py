@@ -11,7 +11,8 @@ import json
 from pathlib import Path
 import re
 
-LAYERS = ("base_layer", "num_layer", "function_layer", "nav_layer", "sym_layer")
+LAYERS = ("base_layer", "num_layer", "function_layer", "nav_layer", "sym_layer",
+          "encoder_middle_layer", "encoder_ring_layer")
 VISIBLE_POSITIONS = list(range(51)) + [59]
 UNUSED_POSITIONS = set(range(51, 59))
 # Symbolic modifier labels are for the SVG only; the ZMK keymap is unchanged.
@@ -36,6 +37,7 @@ KEY_NAMES = {
     "PG_DN": "PgDn", "PG_UP": "PgUp", "PRINTSCREEN": "PrtSc",
     "SCRL_DOWN": "Wheel↓", "SCRL_UP": "Wheel↑",
     "SCRL_LEFT": "Wheel←", "SCRL_RIGHT": "Wheel→",
+    "FAST_SCRL_DOWN": "Wheel↓ ×5", "FAST_SCRL_UP": "Wheel↑ ×5",
 }
 
 
@@ -62,10 +64,12 @@ def binding_label(binding):
         return {"tap": "–"}
     if behavior == "&trans":
         return {"tap": "▽", "type": "trans"}
-    if behavior in ("&hml", "&hmr", "&phtl", "&phtr", "&phtl_scroll"):
+    if behavior in ("&hml", "&hmr", "&phtl", "&phtr", "&phtl_scroll", "&enc_lt", "&enc_alt_lt"):
         if len(args) != 2:
             raise ValueError("Expected 2 args for hold-tap: " + binding)
-        return {"tap": code_label(args[1]), "hold": code_label(args[0])}
+        hold = ("Enc Mid + ⎇" if behavior == "&enc_alt_lt" else
+                {"ENC_MIDDLE": "Enc Mid", "ENC_RING": "Enc Ring"}.get(args[0], code_label(args[0])))
+        return {"tap": code_label(args[1]), "hold": hold}
     if behavior == "&kp":
         return {"tap": code_label(" ".join(args))}
     if behavior == "&sk":
@@ -139,7 +143,8 @@ def run(root, output_dir):
     assert len(geometry) == len(VISIBLE_POSITIONS) == 52
 
     labels = {"base_layer": "Base", "num_layer": "Num / Mouse", "function_layer": "Function",
-              "nav_layer": "Navigation", "sym_layer": "Symbols"}
+              "nav_layer": "Navigation", "sym_layer": "Symbols",
+              "encoder_middle_layer": "Encoder Middle", "encoder_ring_layer": "Encoder Ring"}
     layers = {}
     for name in LAYERS:
         positions, sensors = read_layer(source, name)
