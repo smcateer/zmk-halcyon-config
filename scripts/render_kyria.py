@@ -69,8 +69,6 @@ def binding_label(binding):
         hold = ("Enc Mid + ⎇" if behavior == "&enc_alt_lt" else
                 {"ENC_MODE_MIDDLE": "Enc Mid", "ENC_MODE_RING": "Enc Ring", "ENC_MODE_NAV_PAGE": "Enc Pg"}.get(args[0], code_label(args[0])))
         return {"tap": code_label(args[1]), "hold": hold}
-    if behavior == "&kyria_encoder_mode":
-        return {"tap": "–", "hold": "Enc ↑↓"}  # NAV key 06 (held only)
     if behavior == "&kp":
         return {"tap": code_label(" ".join(args))}
     if behavior == "&sk":
@@ -162,6 +160,9 @@ def run(root, output_dir):
         keys = []
         for pos in VISIBLE_POSITIONS:
             key = binding_label(positions[pos])
+            if name == "nav_layer" and pos == 6:
+                # The encoder controller recognises the physical hold.
+                key["hold"] = "Enc ↑↓"
             key["tl"] = f"{pos:02}"
             if pos in (50, 59):
                 annotate_encoder(key, "L" if pos == 50 else "R", sensors[0 if pos == 50 else 1] if sensors else "", name)
