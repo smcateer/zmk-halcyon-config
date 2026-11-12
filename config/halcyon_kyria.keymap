@@ -663,8 +663,8 @@
             sensor-bindings =
                 // Left Halcyon encoder
                 <&noop_sensor>,
-                // Right Halcyon encoder
-                <&noop_sensor>,
+                // Right Halcyon encoder: clockwise = Right, anticlockwise = Left
+                <&inc_dec_kp RIGHT LEFT>,
                 // Unused left soldered encoder
                 <&noop_sensor>,
                 // Unused right soldered encoder
