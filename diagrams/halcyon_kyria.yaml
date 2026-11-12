@@ -921,7 +921,9 @@
       },
       {
         "tap": "Enc R",
-        "tl": "59"
+        "tl": "59",
+        "shifted": "↻ →",
+        "hold": "↺ ←"
       }
     ],
     "Symbols": [

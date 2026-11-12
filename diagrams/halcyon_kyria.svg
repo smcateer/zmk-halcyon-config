@@ -1276,6 +1276,8 @@ text.key.tl {
 <text x="0" y="0" class="key tap">
 <tspan x="0" dy="-0.6em">Enc</tspan><tspan x="0" dy="1.2em">R</tspan>
 </text>
+<text x="0" y="24" class="key hold">↺ ←</text>
+<text x="0" y="-24" class="key shifted">↻ →</text>
 <text x="-24" y="-24" class="key tl">59</text>
 </g>
 </g>
