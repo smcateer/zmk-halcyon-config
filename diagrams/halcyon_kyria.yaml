@@ -1417,8 +1417,8 @@
         "tap": "▽",
         "type": "trans",
         "tl": "59",
-        "shifted": "↻ PgDn",
-        "hold": "↺ PgUp"
+        "shifted": "↻ Wheel↓ ×5",
+        "hold": "↺ Wheel↑ ×5"
       }
     ],
     "Encoder Ring": [
