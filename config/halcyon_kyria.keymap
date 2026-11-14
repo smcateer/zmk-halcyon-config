@@ -369,7 +369,7 @@
          * Old Voyager layer 3.
          */
         num_layer {
-            display-name = "Num";
+            display-name = "Number";
 
             bindings = <
                 // Row 0, left - positions 0-5
