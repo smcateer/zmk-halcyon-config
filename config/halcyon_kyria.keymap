@@ -746,7 +746,7 @@
                 &kp LC(RIGHT)      // 39
 
                 // Thumbs, left - positions 40-44
-                &none              // 40
+                &trans              // 40
                 &trans             // 41
                 &trans             // 42
                 &trans             // 43
@@ -755,9 +755,9 @@
                 // Thumbs, right - positions 45-49
                 &trans             // 45
                 &trans             // 46
-                &none              // 47
+                &trans              // 47
                 &trans             // 48
-                &none              // 49
+                &trans              // 49
 
                 // Encoder, left push action - position 50
                 &none             // 50
