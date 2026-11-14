@@ -199,24 +199,6 @@
         };
 
         /*
-         * Meh on hold / horizontal-wheel-left on tap.
-         */
-        phtl_scroll: positional_hold_tap_scroll_left {
-            compatible = "zmk,behavior-hold-tap";
-            #binding-cells = <2>;
-            display-name = "Scroll Hold Tap Left";
-
-            flavor = "balanced";
-            tapping-term-ms = <HOLD_TAP_TERM_MS>;
-
-            bindings = <&kp>, <&msc>;
-
-            hold-trigger-key-positions = <LEFT_HOLD_TRIGGERS>;
-
-            hold-trigger-on-release;
-        };
-
-        /*
          * Ignore rotation for unused encoders / intentionally disabled layers
          */
         noop_sensor: noop_sensor {
@@ -383,11 +365,11 @@
         };
 
         /*
-         * NUM / MOUSE
+         * NUMBERS AND ARITHMETIC
          * Old Voyager layer 3.
          */
         num_layer {
-            display-name = "Num / Mouse";
+            display-name = "Num";
 
             bindings = <
                 // Row 0, left - positions 0-5
@@ -403,7 +385,7 @@
                 &kp N7                      // 7
                 &kp N8                      // 8
                 &kp N9                      // 9
-                &kp COLON                   // 10
+                &none                         // 10
                 &none                       // 11
 
                 // Row 1, left - positions 12-17
@@ -412,7 +394,7 @@
                 &phtl LALT STAR             // 14
                 &phtl LCTRL MINUS           // 15
                 &phtl LSHIFT PLUS           // 16
-                &phtl LG(LS(LA(LCTRL))) EQUAL           // 17
+                &kp LG(LS(LA(LCTRL)))         // 17
 
                 // Row 1, right - positions 18-23
                 &kp LG(LS(LA(LCTRL)))                   // 18
@@ -424,11 +406,11 @@
 
                 // Row 2, left - positions 24-29
                 &trans                      // 24
-                &mkp MB4                    // 25
-                &mkp MB2                    // 26
-                &mkp MB3                    // 27
-                &mkp MB1                    // 28
-                &phtl_scroll LS(LA(LCTRL)) SCRL_LEFT  // 29
+                &none                         // 25
+                &none                         // 26
+                &none                         // 27
+                &kp EQUAL                     // 28
+                &none                         // 29
 
                 // Upper thumbs, left - positions 30-31
                 &trans            // 30
@@ -701,7 +683,7 @@
 
         /*
          * SYMBOLS
-         * Old Voyager layer 6.
+         * Left: operators. Right: brackets, punctuation and shortcuts.
          */
         sym_layer {
             display-name = "Symbols";
@@ -709,43 +691,43 @@
             bindings = <
                 // Row 0, left - positions 0-5
                 &tog SYM           // 0
-                &none              // 1
-                &none              // 2
-                &kp TILDE          // 3
-                &kp GRAVE          // 4
+                &kp GRAVE                     // 1
+                &kp CARET                     // 2
+                &kp PIPE                      // 3
+                &kp AMPS                      // 4
                 &none              // 5
 
                 // Row 0, right - positions 6-11
                 &none              // 6
-                &kp LBKT           // 7
-                &kp RBKT           // 8
+                &kp LESS_THAN                 // 7
+                &kp GREATER_THAN              // 8
                 &kp LBRC           // 9
                 &kp RBRC           // 10
                 &kp LA(RBKT)       // 11
 
                 // Row 1, left - positions 12-17
                 &trans            // 12
-                &phtl LGUI BSLH    // 13
-                &phtl LALT PRCNT   // 14
-                &phtl LCTRL HASH   // 15
-                &phtl LSHIFT DLLR  // 16
-                &kp LG(LS(LA(LCTRL)))          // 17
+                &phtl LGUI FSLH               // 13
+                &phtl LALT STAR               // 14
+                &phtl LCTRL MINUS             // 15
+                &phtl LSHIFT PLUS             // 16
+                &kp TILDE                     // 17
 
                 // Row 1, right - positions 18-23
-                &kp LG(LS(LA(LCTRL)))          // 18
-                &phtr LSHIFT AMPS  // 19
-                &phtr LCTRL PIPE  // 20
+                &kp DLLR                      // 18
+                &phtr LSHIFT LBKT             // 19
+                &phtr LCTRL RBKT              // 20
                 &phtr LALT LPAR    // 21
                 &phtr LGUI RPAR    // 22
                 &m_amp_c_dot       // 23
 
                 // Row 2, left - positions 24-29
                 &trans             // 24
-                &none              // 25
-                &kp CARET          // 26
-                &kp LESS_THAN     // 27
-                &kp GREATER_THAN  // 28
-                &kp LS(LA(LCTRL))            // 29
+                &kp BSLH                      // 25
+                &kp PRCNT                     // 26
+                &kp HASH                      // 27
+                &kp EQUAL                     // 28
+                &none                         // 29
 
                 // Upper thumbs, left - positions 30-31
                 &trans             // 30
@@ -756,11 +738,11 @@
                 &trans             // 33
 
                 // Row 2, right - positions 34-39
-                &kp LS(LA(LCTRL))            // 34
-                &kp SEMI          // 35
-                &none             // 36
-                &none             // 37
-                &none             // 38
+                &kp SEMI                      // 34
+                &kp QMARK                     // 35
+                &kp COMMA                     // 36
+                &kp DOT                       // 37
+                &kp EXCL                      // 38
                 &kp LC(RIGHT)      // 39
 
                 // Thumbs, left - positions 40-44
