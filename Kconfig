@@ -5,3 +5,13 @@ config ZMK_BEHAVIOR_KYRIA_BATTERY
     depends on ZMK_SPLIT_ROLE_CENTRAL && ZMK_SPLIT_BLE_CENTRAL_BATTERY_LEVEL_FETCHING
     help
       Types the live left/right coin-cell battery levels into the focused application.
+
+config ZMK_BEHAVIOR_KYRIA_ENCODER
+    bool "Kyria encoder mode controller"
+    default y
+    depends on DT_HAS_ZMK_BEHAVIOR_KYRIA_ENCODER_MODE_ENABLED
+    depends on DT_HAS_ZMK_BEHAVIOR_KYRIA_ENCODER_ACTION_ENABLED
+    depends on ZMK_SPLIT_ROLE_CENTRAL
+    help
+      Dynamic encoder dispatch according to held modes and the ordinary
+      keyboard layer, without encoder-specific layers.
