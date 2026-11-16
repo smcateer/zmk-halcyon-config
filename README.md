@@ -7,7 +7,7 @@
 
 # Layout
 
-![layout diagram](https://raw.githubusercontent.com/smcateer/zmk-halcyon-config/refs/heads/main/diagrams/halcyon_kyria.svg)
+![layout diagram](./diagrams/halcyon_kyria.svg)
 
 ## Encoder controls
 
