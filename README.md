@@ -47,3 +47,5 @@ RIGHT  [###########-]  95%
 ## Drawing the layout
 
 The [render script](./scripts/render_kyria.py) turns the ZMK keymap into input for keymap-drawer. It includes the encoder push buttons and skips the eight unused firmware positions. The SVG is checked in alongside the keymap so the diagram can show what’s on the branch you’re looking at.
+
+![Kyria keymap](./diagrams/halcyon_kyria.svg)
