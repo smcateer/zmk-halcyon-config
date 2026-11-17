@@ -66,8 +66,13 @@ def binding_label(binding):
     if behavior in ("&hml", "&hmr", "&phtl", "&phtr", "&phtl_scroll", "&enc_lt", "&enc_alt_lt"):
         if len(args) != 2:
             raise ValueError("Expected 2 args for hold-tap: " + binding)
-        hold = ("Enc Mid + ⎇" if behavior == "&enc_alt_lt" else
-                {"ENC_MODE_MIDDLE": "Enc Mid", "ENC_MODE_RING": "Enc Ring", "ENC_MODE_NAV_PAGE": "Enc Pg"}.get(args[0], code_label(args[0])))
+        modes = {
+            "ENC_MODE_LEFT_CTRL_TAB": "Enc ∧Tab",
+            "ENC_MODE_RIGHT_HORIZONTAL_SCROLL": "Enc ↔",
+            "ENC_MODE_RIGHT_FAST_SCROLL": "Enc Fast",
+            "ENC_MODE_RIGHT_NAV_PAGE": "Enc Pg",
+        }
+        hold = "Enc ⎇Tab" if behavior == "&enc_alt_lt" else modes.get(args[0], code_label(args[0]))
         return {"tap": code_label(args[1]), "hold": hold}
     if behavior == "&kp":
         return {"tap": code_label(" ".join(args))}
