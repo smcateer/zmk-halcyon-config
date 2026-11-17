@@ -15,12 +15,6 @@
 
 #include "kyria_encoder_state.h"
 
-#define MODE_MIDDLE 1
-#define MODE_RING 2
-#define MODE_NAV_VERTICAL 3
-#define MODE_NAV_PAGE 4
-#define MODE_MAX MODE_NAV_PAGE
-
 /* ZMK hold-tap-backed mode keys use refcounts for overlapping holds. */
 static uint8_t held_modes[MODE_MAX + 1];
 
@@ -58,20 +52,27 @@ static int physical_encoder_mode_listener(const zmk_event_t *eh) {
 ZMK_LISTENER(kyria_encoder_mode_positions, physical_encoder_mode_listener);
 ZMK_SUBSCRIPTION(kyria_encoder_mode_positions, zmk_position_state_changed);
 
-int kyria_encoder_active_mode(void) {
-    if (held_modes[MODE_NAV_PAGE]) {
-        return MODE_NAV_PAGE;
+enum kyria_encoder_mode kyria_encoder_active_mode(enum kyria_encoder_side side) {
+    if (side == KYRIA_ENCODER_LEFT) {
+        if (held_modes[MODE_LEFT_CTRL_TAB]) {
+            return MODE_LEFT_CTRL_TAB;
+        }
+        return base_b_held ? MODE_LEFT_TAB : MODE_NONE;
     }
-    if (nav_j_held || held_modes[MODE_NAV_VERTICAL]) {
-        return MODE_NAV_VERTICAL;
+
+    if (held_modes[MODE_RIGHT_NAV_PAGE]) {
+        return MODE_RIGHT_NAV_PAGE;
     }
-    if (held_modes[MODE_RING]) {
-        return MODE_RING;
+    if (nav_j_held) {
+        return MODE_RIGHT_NAV_VERTICAL;
     }
-    if (base_b_held || held_modes[MODE_MIDDLE]) {
-        return MODE_MIDDLE;
+    if (held_modes[MODE_RIGHT_HORIZONTAL_SCROLL]) {
+        return MODE_RIGHT_HORIZONTAL_SCROLL;
     }
-    return 0;
+    if (held_modes[MODE_RIGHT_FAST_SCROLL]) {
+        return MODE_RIGHT_FAST_SCROLL;
+    }
+    return MODE_NONE;
 }
 
 static int on_pressed(struct zmk_behavior_binding *binding,
