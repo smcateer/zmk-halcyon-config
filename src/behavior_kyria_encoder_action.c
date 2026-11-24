@@ -21,10 +21,6 @@
 /* Rotations: left CW/CCW = 0/1, right CW/CCW = 2/3. */
 #define ROTATIONS 4
 #define RIGHT_CW 2
-#define MODE_MIDDLE 1
-#define MODE_RING 2
-#define MODE_NAV_VERTICAL 3
-#define MODE_NAV_PAGE 4
 
 struct encoder_config {
     const char *key_press_dev;
@@ -61,17 +57,20 @@ static struct output select_output(const struct encoder_config *cfg, uint32_t ro
     const int16_t step = cfg->base_scroll;
     const int16_t fast = step * cfg->fast_multiplier;
 
-    switch (kyria_encoder_active_mode()) {
-    case MODE_NAV_PAGE:
-        return right ? key(clockwise ? PG_DN : PG_UP) : (struct output){0};
-    case MODE_NAV_VERTICAL:
-        return right ? key(clockwise ? DOWN : UP) : (struct output){0};
-    case MODE_RING:
-        return right ? wheel(clockwise ? MOVE_X(step) : MOVE_X(-step))
-                     : key(clockwise ? LC(TAB) : LS(LC(TAB)));
-    case MODE_MIDDLE:
-        return right ? wheel(clockwise ? MOVE_Y(-fast) : MOVE_Y(fast))
-                     : key(clockwise ? TAB : LS(TAB));
+    const enum kyria_encoder_side side = right ? KYRIA_ENCODER_RIGHT : KYRIA_ENCODER_LEFT;
+    switch (kyria_encoder_active_mode(side)) {
+    case MODE_LEFT_TAB:
+        return key(clockwise ? TAB : LS(TAB));
+    case MODE_LEFT_CTRL_TAB:
+        return key(clockwise ? LC(TAB) : LS(LC(TAB)));
+    case MODE_RIGHT_NAV_PAGE:
+        return key(clockwise ? PG_DN : PG_UP);
+    case MODE_RIGHT_NAV_VERTICAL:
+        return key(clockwise ? DOWN : UP);
+    case MODE_RIGHT_HORIZONTAL_SCROLL:
+        return wheel(clockwise ? MOVE_X(step) : MOVE_X(-step));
+    case MODE_RIGHT_FAST_SCROLL:
+        return wheel(clockwise ? MOVE_Y(-fast) : MOVE_Y(fast));
     default:
         break;
     }

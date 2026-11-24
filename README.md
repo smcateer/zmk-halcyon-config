@@ -20,18 +20,23 @@ Symbols are roughly **mathsy on the left, typingish on the right**. The Number l
 
 ## Encoders
 
-The left dial switches workspaces. The right one scrolls. Holding a nearby key changes what the dial does for as long as I hold it. The firmware tracks that separately from the typing layers, so an encoder hold can outlast the one-shot NAV layer.
+Each dial responds to the keys next to it. A hold on the other side leaves the dial's action alone. The tables show clockwise / anticlockwise, with `--` meaning no adjacent key held. The layer is where the hold starts.
 
-| Context | Left dial, clockwise / anticlockwise | Right dial, clockwise / anticlockwise |
-| --- | --- | --- |
-| Base | Next / previous workspace | Scroll down / up |
-| Base + hold `LT5` or `RT4` | Tab / Shift+Tab | Fast scroll down / up |
-| Base + hold `LT4` or `RT5` | Ctrl+Tab / Ctrl+Shift+Tab | Scroll right / left |
-| NAV | — | Right / Left |
-| NAV + hold `RT5` | — | Down / Up |
-| NAV + hold `RT4` | — | Page Down / Page Up |
+### Left encoder
 
-On base, `LT5` also holds Alt, so I can hold `LT5`, turn the left dial to pick a window, then let go to select it. All four base-layer keys still type their usual letters when tapped. On NAV, tapping `RT4` sends Home and tapping `RT5` does nothing. If holds overlap, paging wins, then vertical arrows, then the Ctrl+Tab mode, then the Tab mode.
+| Layer / encoder | `--` | Hold `LT5` | Hold `LT4` |
+| --- | --- | --- | --- |
+| Base / left | Next / previous workspace | Alt+Tab / Alt+Shift+Tab | Ctrl+Tab / Ctrl+Shift+Tab |
+| NAV / left | No action | No action | No action |
+
+### Right encoder
+
+| Layer / encoder | `--` | Hold `RT5` | Hold `RT4` |
+| --- | --- | --- | --- |
+| Base / right | Scroll down / up | Scroll right / left | Fast scroll down / up |
+| NAV / right | Right / Left | Down / Up | Page Down / Page Up |
+
+On Base, all four keys still type their usual letters when tapped. `LT5` holds Alt, so letting go selects the window. On NAV, `RT4` taps Home and `RT5` has no tap action. Once selected, an encoder mode lasts until the key is released, even if one-shot NAV expires. Number, Function and Symbols have no default rotation actions.
 
 ## The build
 

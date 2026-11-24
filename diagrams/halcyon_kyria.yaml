@@ -20,22 +20,22 @@
       },
       {
         "tap": "P",
-        "hold": "Enc Ring",
+        "hold": "Enc ∧Tab",
         "tl": "04"
       },
       {
         "tap": "B",
-        "hold": "Enc Mid + ⎇",
+        "hold": "Enc ⎇Tab",
         "tl": "05"
       },
       {
         "tap": "J",
-        "hold": "Enc Ring",
+        "hold": "Enc ↔",
         "tl": "06"
       },
       {
         "tap": "L",
-        "hold": "Enc Mid",
+        "hold": "Enc Fast",
         "tl": "07"
       },
       {
